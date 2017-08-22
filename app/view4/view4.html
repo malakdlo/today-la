@@ -1,0 +1,251 @@
+<div class="headerWrapper">
+  <header>
+      <nav>
+          <a href="/#" class="nav-home active">
+              Home
+          </a>
+          <a href="#!/select">Select</a>
+<!--          <a href="#!/getstarted">Two Filters Example</a>-->
+      </nav>
+      <div class="logo">
+          <a href="/#" class="logo--link">
+              <img src="images/todayLA-temp-logo.png" width="75px" height="75px">
+          </a>
+      </div>
+      <div class="right">
+          <a href="#!/select" class="cta cta-border cta-transparent cta--sign-up nav-signUp">Find an Event</a>
+      </div>
+
+      <div class="mobile">
+          <div class="link active">
+              <a href="https://dashboard.nuageapp.com/login">
+                  Log in
+              </a>
+          </div>
+
+          <div class="logo">
+              <a href="/#" class="logo--link">
+                  <img src="images/todayLA-temp-logo.png" width="50px" height="50px">
+              </a>
+          </div>
+
+          <div class="burger">
+              <div class="bars">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </div>
+          </div>
+      </div>
+
+      <ul class="mobile-dropdown">
+          <li>
+              <a href="/">
+                  Home
+              </a>
+          </li>
+      </ul>
+  </header>
+</div>
+
+<div class="page home">
+  <div class="pageWrapper">
+      <div class="centeredContainer">
+          <div class="catchZone">
+              <div class="hello">
+                  <span id="intro">
+                      <span class="coolBlue" style="opacity: 1; transform: translate3d(0px, 0px, 0px);">T</span>
+                      <span style="opacity: 1; transform: translate3d(0px, 0px, 0px);">o</span>
+                      <span style="opacity: 1; transform: translate3d(0px, 0px, 0px);">d</span>
+                      <span style="opacity: 1; transform: translate3d(0px, 0px, 0px);">a</span>
+                      <span style="opacity: 1; transform: translate3d(0px, 0px, 0px);">y</span>
+                  </span>
+              </div>
+          </div>
+
+          <div class="catchPhrase">
+              <p>
+                  <span style="opacity: 1; transform-origin: center center 0px; transform: matrix(1, 0, 0, 1, 0, 0);">Find something to do</span>
+      <span style="opacity: 1; transform-origin: center center 0px; transform: matrix(1, 0, 0, 1, 0, 0);">fast.</span>
+              </p>
+          </div>
+
+          <div class="catchCta">
+              <a href="#!/select" class="cta cta-colored cta-blue cta--invite" style="opacity: 1; width: 208px; transform-origin: center center 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+                  <span>Find An Event</span>
+              </a>
+          </div>
+      </div>
+  </div>
+
+<!-- SECOND SECTION - DESCRIPTIONS -->
+  <section class="blocks">
+      <div class="pageWrapper blocksWrapper">
+        <!-- FIRST BLOCK DESCRIPTION -->
+          <section class="block" style="opacity: 1; transform-origin: center center 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+              <h3 class="block--title">
+                  Choose
+              </h3>
+              <span class="block--catch">
+                  A Few Simple Event Categories
+              </span>
+              <div class="block--text">
+                  And receive an event instantly.
+              </div>
+            
+              <!-------------- FILTER BUTTON START ----------------->
+              <!-- Title, Search Buttons -->
+              <div>
+                <!-- BUTTONS -->
+                <div class="row text-center" id="buttons">
+                  <div class="col-md-6" id="searchCol">
+                    <button ng-model="searchForm" ng-init="searchForm = false" ng-click="searchForm = !searchForm" href="#filter" class="btn btn-md">Filter Event</button>
+                  </div>
+                </div>
+                <!-- CONTENT LINKS AND INFO -->
+                <!-- FILTER INFO -->
+                <div class="row text-center" id="content">
+                  <div class="col-12" id="results">
+                  </div>
+                  <div class="col-md-12 text-center" id="options">
+                    <button onclick="clearSearch()" class="btn btn-primary hide" id="clearButton">Clear Search</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Start Hidden Search Form -->
+              <div id="search" ng-show="searchForm">
+
+                <button type="button" class="close" ng-click="searchForm = !searchForm">×</button>
+                <!-- Cat 1 Buttons Row -->
+                <div class="row">
+                  <!-- Cat 1 Buttons Col -->
+                  <div class="col-md-12 text-center filterButtons">
+                    <button ng-model="activityButtons" ng-init="activityButtons = false" ng-click="findCatOne(this.id); activityButtons = !activityButtons" id="Activities" class="btn btn-primary">Activities</button>
+
+                    <button ng-model="foodButtons" ng-init="foodButtons = false" ng-click="findCatOne(this.id); foodButtons = !foodButtons" id="Food" class="btn btn-primary">Food</button>
+                  </div><!-- End Cat 1 Buttons Col -->
+
+                </div><!-- End Cat 1 Buttons -->
+
+                <!-- Cat 2 Buttons -->
+                <div class="row">
+
+                  <!-- Buttons -->
+                  <div class="col-md-12 text-center" id="catTwoButtons">
+
+                    <!-- Food Buttons Start -->
+                    <div ng-show="foodButtons">
+                      <button ng-click="findCatTwo(this.id); foodButtons = !foodButtons" class="btn btn-primary" id=""></button>
+                    </div><!-- Food Buttons End -->
+
+                    <!-- Activity Buttons Start -->
+                    <div ng-show="activityButtons">
+                      <button ng-click="findCatTwo(this.id); activityButtons = !activityButtons" class="btn btn-primary" id=""></button>
+                    </div><!-- Activity Buttons End -->
+
+                  </div><!-- End Buttons Col -->
+
+                  <!-- Clear Search -->
+              <!--
+                  <div class="col-md-12 text-center" id="options">
+                    <button onclick="clearSearch()" class="btn btn-primary hide" id="clearButton">Clear Search</button>
+                  </div>
+              -->
+
+                </div><!-- End Cat 2 Buttons -->
+
+
+              </div><!-- End Hidden Search Form -->
+              <!-------------- END FILTER BUTTON ----------------->
+          </section>
+        
+          <!-- SECOND BLOCK DESCRIPTION -->
+          <section class="block" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0); transform-origin: center center 0px;" ng-controller="RandomCtrl">
+              <h3 class="block--title">
+                  Don't Choose
+              </h3>
+              <span class="block--catch">
+                  Just click.
+              </span>
+              <div class="block--text">
+                  And receive an event instantly.
+              </div>
+              <!-------------- RANDOM BUTTON START ----------------->
+              <div>
+                <div>
+                <!-- BUTTONS -->
+                <div class="row text-center" id="buttons">
+                  <div class="col-md-6" id="random">
+                    <button ng-model="status" ng-init="status=false" ng-click="searchRandom(); status = !status" href="#random" id="randomButton" class="btn btn-md">Random Event</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CONTENT LINKS AND INFO -->
+                <div class="row text-center" id="content">
+                  <!-- RANDOM INFO -->
+                  <div class="col-12" id="randomContainer" ng-show="status">
+                      <h2 id="randomEventTitle" class="retroshd"></h2>
+                      <p id="randomDetails"></p>
+                      <a href="" id="randomLink" target="_blank"></a>
+                      <br>
+                      <button ng-click="clearRandomSearch(); status = !status" class="btn btn-primary" id="clearButton">Clear Search</button>
+                  </div>
+                </div><!-- END CONTENT LINKS AND INFO -->
+              </div><!-------------- END RANDOM BUTTON ----------------->
+              
+          </section>
+        <!-- THIRD BLOCK DESCRIPTION -->
+<!--
+          <section class="block" style="opacity: 1; transform-origin: center center 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+              <h3 class="block--title">
+                  Either Way
+              </h3>
+              <span class="block--catch">
+                  You save time finding the event.
+              </span>
+              <div class="block--text">
+                  And have more time enjoying it.
+              </div>
+          </section>
+-->
+      </div>
+  </section>
+
+<!-- THIRD SECTION - CTA -->
+  <div class="pageWrapper">
+      <div class="horizontalContainer">
+          <div class="catchPhrase catchPhrase-light-margin catchPhrase-large">
+              <p class="black">Find an event fast.</p>
+          </div>
+
+          <div class="catchCta">
+              <a href="#!/select" class="cta cta-colored cta-blue cta-visible cta-width-strict cta--invite cta--signup">Get started</a>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="footerWrapper">
+  <footer>
+      <section class="desktop">
+          <div>
+              <p>2017 © Today LA. All rights reserved.</p>
+          </div>
+          <div>
+              <ul>
+                  <li><a href="#">Contact</a></li>
+                  <li><a href="#">Terms of Service</a></li>
+                  <li><a href="#">Privacy</a></li>
+              </ul>
+          </div>
+      </section>
+
+      <section class="mobile">
+          <p>
+              2017 © Today LA. All rights reserved
+          </p>
+      </section>
+  </footer>
+</div>

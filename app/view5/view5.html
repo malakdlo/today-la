@@ -1,0 +1,124 @@
+<!-- Title, Search Buttons -->
+<div class="headerWrapper">
+  <header>
+      <nav>
+          <a href="/#">
+              Home
+          </a>
+          <a href="#!/select">Select</a>
+<!--          <a href="#!/getstarted" class="nav-home active">Two Filters Example</a>-->
+      </nav>
+      <div class="logo">
+          <a href="/#" class="logo--link">
+              <img src="images/todayLA-temp-logo.png" width="75px" height="75px">
+          </a>
+      </div>
+      <div class="right">
+          <a href="#!/select" class="cta cta-border cta-transparent cta--sign-up nav-signUp">Find an Event</a>
+      </div>
+
+      <div class="mobile">
+          <div class="link active">
+              <a href="https://dashboard.nuageapp.com/login">
+                  Log in
+              </a>
+          </div>
+
+          <div class="logo">
+              <a href="/#" class="logo--link">
+                  <img src="images/todayLA-temp-logo.png" width="50px" height="50px">
+              </a>
+          </div>
+
+          <div class="burger">
+              <div class="bars">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </div>
+          </div>
+      </div>
+
+      <ul class="mobile-dropdown">
+          <li>
+              <a href="/">
+                  Home
+              </a>
+          </li>
+      </ul>
+  </header>
+</div>
+<div>
+
+    <!-- TITLE -->
+    <div class="title">
+      <h1 class="element xbootstrap"></h1>
+    </div>
+
+    <br><br><br>
+
+    <!-- BUTTONS -->
+    <div class="row text-center" id="buttons">
+        <div class="col-md-6" id="random">
+            <button ng-model="status" ng-init="status=false" ng-click="searchRandom(); status = !status" href="#random" id="randomButton" class="btn btn-md">Random Event</button>
+        </div>
+        <div class="col-md-6" id="searchCol">
+            <button href="#filter" ng-click="searchRandom()" class="btn btn-md">Filter Event</button>
+        </div>
+    </div>
+
+    <!-- CONTENT LINKS AND INFO -->
+    <div class="row text-center" id="content">
+        <!-- RANDOM INFO -->
+        <div class="col-12" id="randomContainer" ng-show="status">
+            <h2 id="randomEventTitle" class="retroshd"></h2>
+            <p id="randomDetails"></p>
+            <a href="" id="randomLink" target="_blank"></a>
+            <br>
+            <button ng-click="clearRandomSearch(); status = !status" class="btn btn-primary" id="clearButton">Clear Search</button>
+        </div>
+
+        <!-- FILTER INFO -->
+        <div class="col-12" id="results">
+        </div>
+        <div class="col-md-12 text-center" id="options">
+          <button onclick="clearSearch()" class="btn btn-primary hide" id="clearButton">Clear Search</button>
+        </div>
+    </div>
+</div><!-- End Title, Search Buttons -->
+
+<!-- Start Hidden Search Form -->
+<div id="search">
+
+  <button type="button" class="close">×</button>
+  <!--<form id="searchForm">
+    <input type="search" value="" id="searchTerm" placeholder="type keyword(s) here" />
+    <button type="submit" class="btn btn-primary finishBtn" id="closeSearchForm">Search</button>
+</form>-->
+
+  <!-- Cat 1 Buttons Row -->
+  <div class="row">
+    <!-- Cat 1 Buttons Col -->
+    <div class="col-md-12 text-center filterButtons">
+      <button onclick="findCatOne(this.id)" id="Activities" class="btn btn-primary">Activities</button>
+
+      <button onclick="findCatOne(this.id)" id="Food" class="btn btn-primary">Food</button>
+    </div><!-- End Cat 1 Buttons Col -->
+
+  </div><!-- End Cat 1 Buttons -->
+
+  <!-- Cat 2 Buttons -->
+  <div class="row">
+
+    <!-- Buttons -->
+    <div class="col-md-12 text-center" id="catTwoButtons"></div>
+
+    <!-- Clear Search -->
+    <div class="col-md-12 text-center" id="options">
+      <button onclick="clearSearch()" class="btn btn-primary hide" id="clearButton">Clear Search</button>
+    </div>
+
+  </div><!-- End Cat 2 Buttons -->
+
+
+</div><!-- End Hidden Search Form -->

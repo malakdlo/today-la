@@ -1,0 +1,68 @@
+<!-- Title, Search Buttons -->
+<div>
+  <!-- BUTTONS -->
+  <div class="row text-center" id="buttons">
+    <div class="col-md-6" id="searchCol">
+      <button ng-model="searchForm" ng-init="searchForm = false" ng-click="searchForm = !searchForm" href="#filter" class="btn btn-md">Filter Event</button>
+    </div>
+  </div>
+  <!-- CONTENT LINKS AND INFO -->
+  <!-- FILTER INFO -->
+  <div class="row text-center" id="content">
+    <div class="col-12" id="results">
+    </div>
+    <div class="col-md-12 text-center" id="options">
+      <button onclick="clearSearch()" class="btn btn-primary hide" id="clearButton">Clear Search</button>
+    </div>
+  </div>
+</div>
+
+<!-- Start Hidden Search Form -->
+<div id="search" ng-show="searchForm">
+
+  <button type="button" class="close" ng-click="searchForm = !searchForm">×</button>
+  <!-- Cat 1 Buttons Row -->
+  <div class="row">
+    <!-- Cat 1 Buttons Col -->
+    <div class="col-md-12 text-center filterButtons">
+      <button ng-model="activityButtons" ng-init="activityButtons = false" ng-click="findCatOne(this.id); activityButtons = !activityButtons" id="Activities" class="btn btn-primary">Activities</button>
+
+      <button ng-model="foodButtons" ng-init="foodButtons = false" ng-click="findCatOne(this.id); foodButtons = !foodButtons" id="Food" class="btn btn-primary">Food</button>
+      
+      
+      <button ng-model="{{x}} + 'Info'" class="btn btn-primary">{{x}}</button>
+      <button ng-model="ActivitiesInfo" ng-init="ActivitiesInfo = false" ng-click="ActivitiesInfo = !ActivitiesInfo" id="Activities" class="btn btn-primary">Activities</button>
+      <button ng-model="FoodInfo" ng-init="FoodInfo = false" ng-click="FoodInfo = !FoodInfo" id="Food" class="btn btn-primary">Food</button>
+    </div><!-- End Cat 1 Buttons Col -->
+
+  </div><!-- End Cat 1 Buttons -->
+
+  <!-- Cat 2 Buttons -->
+  <div class="row">
+
+    <!-- Buttons -->
+    <div class="col-md-12 text-center" id="catTwoButtons">
+      
+      <!-- Food Buttons Start -->
+      <div ng-show="foodButtons">
+        <button ng-click="findCatTwo(this.id); foodButtons = !foodButtons" class="btn btn-primary" id=""></button>
+      </div><!-- Food Buttons End -->
+      
+      <!-- Activity Buttons Start -->
+      <div ng-show="activityButtons">
+        <button ng-click="findCatTwo(this.id); activityButtons = !activityButtons" class="btn btn-primary" id=""></button>
+      </div><!-- Activity Buttons End -->
+      
+    </div><!-- End Buttons Col -->
+
+    <!-- Clear Search -->
+<!--
+    <div class="col-md-12 text-center" id="options">
+      <button onclick="clearSearch()" class="btn btn-primary hide" id="clearButton">Clear Search</button>
+    </div>
+-->
+
+  </div><!-- End Cat 2 Buttons -->
+
+
+</div><!-- End Hidden Search Form -->
