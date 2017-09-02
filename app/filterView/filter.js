@@ -568,13 +568,14 @@ angular.module('myApp.filterView', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bo
   
   
 /* MAIN FUNCTIONS */
-  // Open and Close Form
+  // Open and Close Food Form
   $scope.openForm = function(){
     document.getElementById('search').setAttribute('class', 'open');
   };
-  $scope.closeForm = function(){
+  $scope.closeForm = function(){        
     document.getElementById('search').setAttribute('class', '');
   };
+  
   // Filters
   $scope.findCatOne = function(category){
     console.log("Value of passed in category");
