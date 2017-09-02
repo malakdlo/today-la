@@ -3,6 +3,9 @@
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
   'ngRoute',
+  'ui.bootstrap',
+  'ngSanitize', 
+  'angular.filter',
   'myApp.view1',
   'myApp.view2',
   'myApp.view3',
@@ -10,6 +13,7 @@ angular.module('myApp', [
   'myApp.view5',
   'myApp.selectView',
   'myApp.randomView',
+  'myApp.filterView',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
