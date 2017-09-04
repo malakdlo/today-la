@@ -624,8 +624,555 @@ angular.module('myApp.selectView', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bo
   
 })
 
-.controller('ModalDemoCtrl', function ($uibModal, $log, $document) {
+.controller('ModalDemoCtrl', function ($uibModal, $log, $document, $scope) {
   var $ctrl = this;
+  /* DATA */
+  // Results
+  $ctrl.results = [
+   {
+      "name":"Example 1",
+      "details":"Example Details 1",
+      "link":"http://scriptmedia.biz",
+      "category1":"Activities",
+      "category2":[
+         "Sporty",
+         "",
+         ""
+      ]
+   },
+   {
+      "name":"Example 2",
+      "details":"Example Details 2",
+      "link":"http://scriptmedia.biz",
+      "category1":"Activities",
+      "category2":[
+         "Romantic ",
+         "Games",
+         "Historical"
+      ]
+   },
+   {
+      "name":"Example 3",
+      "details":"Example Details 3",
+      "link":"http://scriptmedia.biz",
+      "category1":"Activities",
+      "category2":[
+         "Artsy",
+         "Beauty",
+         "Inexpensive"
+      ]
+   },
+   {
+      "name":"Example 4",
+      "details":"Example Details 4",
+      "link":"http://scriptmedia.biz",
+      "category1":"Activities",
+      "category2":[
+         "Fancy",
+         "Culture",
+         "Sporty"
+      ]
+   },
+   {
+      "name":"Example 5",
+      "details":"Example Details 5",
+      "link":"http://scriptmedia.biz",
+      "category1":"Activities",
+      "category2":[
+         "Sporty",
+         "Nature",
+         "Relaxing"
+      ]
+   },
+   {
+      "name":"Example 6",
+      "details":"Example Details 6",
+      "link":"http://scriptmedia.biz",
+      "category1":"Activities",
+      "category2":[
+         "Romantic ",
+         "Games",
+         "Historical"
+      ]
+   },
+   {
+      "name":"Example 6.5",
+      "details":"Example Details 6.5",
+      "link":"http://scriptmedia.biz",
+      "category1":"Activities",
+      "category2":[
+         "Artsy",
+         "Beauty",
+         "Inexpensive"
+      ]
+   },
+   {
+      "name":"Example 7",
+      "details":"Example Details 7",
+      "link":"http://scriptmedia.biz",
+      "category1":"Activities",
+      "category2":[
+         "Fancy",
+         "Culture",
+         "Sporty"
+      ]
+   },
+   {
+      "name":"Example 8",
+      "details":"Example Details 8",
+      "link":"http://scriptmedia.biz",
+      "category1":"Activities",
+      "category2":[
+         "Sporty",
+         "Nature",
+         "Relaxing"
+      ]
+   },
+   {
+      "name":"Example 9",
+      "details":"Example Details 9",
+      "link":"http://scriptmedia.biz",
+      "category1":"Activities",
+      "category2":[
+         "Romantic ",
+         "Games",
+         "Historical"
+      ]
+   },
+   {
+      "name":"Example 10",
+      "details":"Example Details 10",
+      "link":"http://scriptmedia.biz",
+      "category1":"Activities",
+      "category2":[
+         "Artsy",
+         "Beauty",
+         "Inexpensive"
+      ]
+   },
+   {
+      "name":"Example 11",
+      "details":"Example Details 11",
+      "link":"http://scriptmedia.biz",
+      "category1":"Activities",
+      "category2":[
+         "Fancy",
+         "Culture",
+         "Sporty"
+      ]
+   },
+   {
+      "name":"Example 12",
+      "details":"Example Details 12",
+      "link":"http://scriptmedia.biz",
+      "category1":"Activities",
+      "category2":[
+         "Sporty",
+         "Nature",
+         "Relaxing"
+      ]
+   },
+   {
+      "name":"Example 13",
+      "details":"Example Details 13",
+      "link":"http://scriptmedia.biz",
+      "category1":"Activities",
+      "category2":[
+         "Romantic ",
+         "Games",
+         "Historical"
+      ]
+   },
+   {
+      "name":"Example 14",
+      "details":"Example Details 14",
+      "link":"http://scriptmedia.biz",
+      "category1":"Activities",
+      "category2":[
+         "Artsy",
+         "Beauty",
+         "Inexpensive"
+      ]
+   },
+   {
+      "name":"Example 15",
+      "details":"Example Details 15",
+      "link":"http://scriptmedia.biz",
+      "category1":"Activities",
+      "category2":[
+         "Fancy",
+         "Culture",
+         "Sporty"
+      ]
+   },
+   {
+      "name":"Example 16",
+      "details":"Example Details 16",
+      "link":"http://scriptmedia.biz",
+      "category1":"Activities",
+      "category2":[
+         "Sporty",
+         "Nature",
+         "Relaxing"
+      ]
+   },
+   {
+      "name":"Example 17",
+      "details":"Example Details 17",
+      "link":"http://scriptmedia.biz",
+      "category1":"Activities",
+      "category2":[
+         "Romantic ",
+         "Games",
+         "Historical"
+      ]
+   },
+   {
+      "name":"Example 18",
+      "details":"Example Details 18",
+      "link":"http://scriptmedia.biz",
+      "category1":"Activities",
+      "category2":[
+         "Artsy",
+         "Beauty",
+         "Inexpensive"
+      ]
+   },
+   {
+      "name":"Example 19",
+      "details":"Example Details 19",
+      "link":"http://scriptmedia.biz",
+      "category1":"Activities",
+      "category2":[
+         "Fancy",
+         "Culture",
+         "Sporty"
+      ]
+   },
+   {
+      "name":"Example 20",
+      "details":"Example Details 20",
+      "link":"http://scriptmedia.biz",
+      "category1":"Activities",
+      "category2":[
+         "Sporty",
+         "Nature",
+         "Relaxing"
+      ]
+   },
+   {
+      "name":"Example 21",
+      "details":"Example Details 21",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "Fancy",
+         "Inexpensive",
+         "FastFood"
+      ]
+   },
+   {
+      "name":"Example 22",
+      "details":"Example Details 22",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "FoodTruck",
+         "Romantic",
+         "Dessert"
+      ]
+   },
+   {
+      "name":"Example 23",
+      "details":"Example Details 23",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "Dinner",
+         "Lunch",
+         "Brunch"
+      ]
+   },
+   {
+      "name":"Example 24",
+      "details":"Example Details 24",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "Breakfast",
+         "Casual",
+         "Fancy"
+      ]
+   },
+   {
+      "name":"Example 25",
+      "details":"Example Details 25",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "Fancy",
+         "Inexpensive",
+         "FastFood"
+      ]
+   },
+   {
+      "name":"Example 26",
+      "details":"Example Details 26",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "FoodTruck",
+         "Romantic",
+         "Dessert"
+      ]
+   },
+   {
+      "name":"Example 27",
+      "details":"Example Details 27",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "Dinner",
+         "Lunch",
+         "Brunch"
+      ]
+   },
+   {
+      "name":"Example 28",
+      "details":"Example Details 28",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "Breakfast",
+         "Casual",
+         "Fancy"
+      ]
+   },
+   {
+      "name":"Example 29",
+      "details":"Example Details 29",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "Fancy",
+         "Inexpensive",
+         "FastFood"
+      ]
+   },
+   {
+      "name":"Example 30",
+      "details":"Example Details 30",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "FoodTruck",
+         "Romantic",
+         "Dessert"
+      ]
+   },
+   {
+      "name":"Example 31",
+      "details":"Example Details 31",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "Dinner",
+         "Lunch",
+         "Brunch"
+      ]
+   },
+   {
+      "name":"Example 32",
+      "details":"Example Details 32",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "Breakfast",
+         "Casual",
+         "Fancy"
+      ]
+   },
+   {
+      "name":"Example 33",
+      "details":"Example Details 33",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "Fancy",
+         "Inexpensive",
+         "FastFood"
+      ]
+   },
+   {
+      "name":"Example 34",
+      "details":"Example Details 34",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "FoodTruck",
+         "Romantic",
+         "Dessert"
+      ]
+   },
+   {
+      "name":"Example 35",
+      "details":"Example Details 35",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "Dinner",
+         "Lunch",
+         "Brunch"
+      ]
+   },
+   {
+      "name":"Example 36",
+      "details":"Example Details 36",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "Breakfast",
+         "Casual",
+         "Fancy"
+      ]
+   },
+   {
+      "name":"Example 37",
+      "details":"Example Details 37",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "Fancy",
+         "Inexpensive",
+         "FastFood"
+      ]
+   },
+   {
+      "name":"Example 38",
+      "details":"Example Details 38",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "FoodTruck",
+         "Romantic",
+         "Dessert"
+      ]
+   },
+   {
+      "name":"Example 39",
+      "details":"Example Details 39",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "Dinner",
+         "Lunch",
+         "Brunch"
+      ]
+   },
+   {
+      "name":"Example 40",
+      "details":"Example Details 40",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "Breakfast",
+         "Casual",
+         "Fancy"
+      ]
+   },
+   {
+      "name":"Example 41",
+      "details":"Example Details 41",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "Fancy",
+         "Inexpensive",
+         "FastFood"
+      ]
+   },
+   {
+      "name":"Example 42",
+      "details":"Example Details 42",
+      "link":"http://scriptmedia.biz",
+      "category1":"Food",
+      "category2":[
+         "FoodTruck",
+         "Romantic",
+         "Dessert"
+      ]
+   }
+];
+  $ctrl.filteredResults = [];
+  $ctrl.finalData = [];
+  
+  // Food Model
+  $ctrl.foodModel = { 
+    Casual: false, 
+    Breakfast: false, 
+    Brunch: false, 
+    Lunch: false, 
+    Dinner: false, 
+    Dessert: false, 
+    Romantic: false, 
+    FoodTruck: false, 
+    FastFood: false, 
+    Inexpensive: false, 
+    Fancy: false 
+  };
+  $ctrl.foodResults = [];
+  $scope.$watchCollection('foodModel', function(){
+      $ctrl.foodResults = [];
+      angular.forEach($ctrl.foodModel, function(value, key){
+        if(value){
+          $ctrl.foodResults.push(key);
+        }
+      })// End forEach
+      // Test 
+      console.log("Updating Food Results Array");
+      console.log($ctrl.foodResults);
+      console.log("Compare to")
+      console.log($ctrl.filteredResults)
+      // End Test
+    });// End Watcher
+
+  // Filters
+  $ctrl.findCatOne = function(category){
+    console.log("Value of passed in category");
+    console.log(category);
+/************* Filter for objects that have "category 1" == category  *************/
+     $ctrl.filteredResults = $ctrl.results.filter(function(arr){
+      // console.log("Value of arr inside of filter")
+      // console.log(arr)
+      return arr["category1"] === category;
+    });// end filter
+    // TEST
+    // Origional length of the events array and resulting eventsFilteredArr length.
+    console.log("*************** findCatOne func ***************")
+    console.log("Total Num of events: ", $ctrl.results.length);
+    console.log("Total Num of events after filter: ", $ctrl.filteredResults.length);
+    console.log($ctrl.filteredResults);
+    // END TEST
+    return $ctrl.filteredResults;
+  }// End findCatOne
+  $ctrl.searchValues = function(catArr){
+    var catArrItem, filteredDataObj;
+    $ctrl.finalData = [];
+    
+    for(var i =  0; i < $ctrl.filteredResults.length; i++){
+    filteredDataObj = $ctrl.filteredResults[i];
+    for(var j = 0; j < catArr.length; j++){
+      catArrItem = catArr[j];
+
+      if(filteredDataObj.category2.indexOf(catArrItem) !== -1 && $ctrl.finalData.indexOf(filteredDataObj) === -1){
+        $ctrl.finalData.push(filteredDataObj);
+      }// End if
+    }// End Inside For Loop
+  }// End Outside For Loop
+  
+  return $ctrl.finalData;
+  } // End searchValues function
+  
   $ctrl.items = ['item1', 'item2', 'item3'];
 
   $ctrl.animationsEnabled = true;
@@ -645,7 +1192,11 @@ angular.module('myApp.selectView', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bo
       resolve: {
         items: function () {
           return $ctrl.items;
+        },
+        filteredResults: function(){
+          
         }
+        
       }
     });
 

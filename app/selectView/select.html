@@ -71,28 +71,28 @@
                         </div>
                         <div class="modal-body" id="modal-body">
                           <!-- Food Buttons Start -->
-                            <div ng-controller="SelectController">
+                            <div>
                               <form novalidate>
                                 <div class="btn-group">
-                                  <label class="btn btn-primary" ng-model="foodModel.Casual" uib-btn-checkbox>Casual</label>
-                                  <label class="btn btn-primary" ng-model="foodModel.Breakfast" uib-btn-checkbox>Breakfast</label>
-                                  <label class="btn btn-primary" ng-model="foodModel.Brunch" uib-btn-checkbox>Brunch</label>
-                                  <label class="btn btn-primary" ng-model="foodModel.Lunch" uib-btn-checkbox>Lunch</label>
-                                  <label class="btn btn-primary" ng-model="foodModel.Dinner" uib-btn-checkbox>Dinner</label>
-                                  <label class="btn btn-primary" ng-model="foodModel.Dessert" uib-btn-checkbox>Dessert</label>
-                                  <label class="btn btn-primary" ng-model="foodModel.Romantic" uib-btn-checkbox>Romantic</label>
-                                  <label class="btn btn-primary" ng-model="foodModel.FoodTruck" uib-btn-checkbox>Food Truck</label>
-                                  <label class="btn btn-primary" ng-model="foodModel.FastFood" uib-btn-checkbox>Fast Food</label>
-                                  <label class="btn btn-primary" ng-model="foodModel.Inexpensive" uib-btn-checkbox>Inexpensive</label>
-                                  <label class="btn btn-primary" ng-model="foodModel.Fancy" uib-btn-checkbox>Fancy</label>
+                                  <label class="btn btn-primary" ng-model="$ctrl.foodModel.Casual" uib-btn-checkbox>Casual</label>
+                                  <label class="btn btn-primary" ng-model="$ctrl.foodModel.Breakfast" uib-btn-checkbox>Breakfast</label>
+                                  <label class="btn btn-primary" ng-model="$ctrl.foodModel.Brunch" uib-btn-checkbox>Brunch</label>
+                                  <label class="btn btn-primary" ng-model="$ctrl.foodModel.Lunch" uib-btn-checkbox>Lunch</label>
+                                  <label class="btn btn-primary" ng-model="$ctrl.foodModel.Dinner" uib-btn-checkbox>Dinner</label>
+                                  <label class="btn btn-primary" ng-model="$ctrl.foodModel.Dessert" uib-btn-checkbox>Dessert</label>
+                                  <label class="btn btn-primary" ng-model="$ctrl.foodModel.Romantic" uib-btn-checkbox>Romantic</label>
+                                  <label class="btn btn-primary" ng-model="$ctrl.foodModel.FoodTruck" uib-btn-checkbox>Food Truck</label>
+                                  <label class="btn btn-primary" ng-model="$ctrl.foodModel.FastFood" uib-btn-checkbox>Fast Food</label>
+                                  <label class="btn btn-primary" ng-model="$ctrl.foodModel.Inexpensive" uib-btn-checkbox>Inexpensive</label>
+                                  <label class="btn btn-primary" ng-model="$ctrl.foodModel.Fancy" uib-btn-checkbox>Fancy</label>
                                 </div>
                                 <div>
                                   <pre>
-                                    {{foodResults}}
+                                    {{$ctrl.foodResults}}
                                   </pre>
 
                                   <pre>
-                                    {{finalData.length}}
+                                    {{$ctrl.finalData.length}}
                                   </pre>
                                 </div>
 
@@ -106,12 +106,12 @@
                             Selected: <b>{{ $ctrl.selected.item }}</b>-->
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-primary" ng-click="searchValues(foodResults)">Search</button>
+                            <button class="btn btn-primary" ng-click="$ctrl.searchValues($ctrl.foodResults)">Search</button>
                         </div>
                       </script><!-- End Modal Content -->
                       <!-- Start Modal Button -->
                       <div class="col-md-12">
-                        <button type="button" class="btn btn-default" ng-click="findCatOne('Food'); $ctrl.open('lg')">Large modal</button>
+                        <button type="button" class="btn btn-default" ng-click="$ctrl.findCatOne('Food'); $ctrl.open('lg')">Large modal</button>
                       </div><!-- End Modal Button -->
                   </div><!-- END MODAL -->
                   <!-------------- END MODAL ----------------->
@@ -127,55 +127,6 @@
                   </div>
                 </div>
               </div><!-- End Title, Search Buttons -->
-
-              <!-- Start Hidden Food Form -->
-              <div id="foodSearch" ng-show="foodSearchForm">
-
-                <button type="button" class="close" ng-click="foodSearchForm = !foodSearchForm">×</button>
-                
-                <!-- Cat 2 Buttons -->
-                <div class="row">
-
-                  <!-- Buttons -->
-                  <div class="col-md-12 text-center" id="catTwoButtons">
-
-                  <!-- Food Buttons Start -->
-                  <div>
-                    <form novalidate>
-                      <div class="btn-group">
-                        <label class="btn btn-primary" ng-model="foodModel.Casual" uib-btn-checkbox>Casual</label>
-                        <label class="btn btn-primary" ng-model="foodModel.Breakfast" uib-btn-checkbox>Breakfast</label>
-                        <label class="btn btn-primary" ng-model="foodModel.Brunch" uib-btn-checkbox>Brunch</label>
-                        <label class="btn btn-primary" ng-model="foodModel.Lunch" uib-btn-checkbox>Lunch</label>
-                        <label class="btn btn-primary" ng-model="foodModel.Dinner" uib-btn-checkbox>Dinner</label>
-                        <label class="btn btn-primary" ng-model="foodModel.Dessert" uib-btn-checkbox>Dessert</label>
-                        <label class="btn btn-primary" ng-model="foodModel.Romantic" uib-btn-checkbox>Romantic</label>
-                        <label class="btn btn-primary" ng-model="foodModel.FoodTruck" uib-btn-checkbox>Food Truck</label>
-                        <label class="btn btn-primary" ng-model="foodModel.FastFood" uib-btn-checkbox>Fast Food</label>
-                        <label class="btn btn-primary" ng-model="foodModel.Inexpensive" uib-btn-checkbox>Inexpensive</label>
-                        <label class="btn btn-primary" ng-model="foodModel.Fancy" uib-btn-checkbox>Fancy</label>
-                      </div>
-                      <div>
-                        <button class="btn btn-primary" ng-click="searchValues(foodResults)">Search</button>
-                      </div>
-
-                      <div>
-                        <pre>
-                          {{foodResults}}
-                        </pre>
-
-                        <pre>
-                          {{finalData.length}}
-                        </pre>
-                      </div>
-
-                    </form>
-                </div><!-- Food Buttons End -->
-
-                  </div><!-- End Buttons Col -->
-
-                </div><!-- End Cat 2 Buttons -->
-              </div><!-- End Hidden Search Form -->
               
             <!-------------- END FOOD BUTTON ----------------->
           </section><!-- END FOOD SECTION -->
@@ -210,58 +161,6 @@
                 </div>
               </div><!-- End Title, Search Buttons -->
 
-              <!-- Start Hidden Food Form -->
-              <div id="activitiesSearch" ng-show="activitiesSearchForm">
-
-                <button type="button" class="close" ng-click="activitiesSearchForm = !activitiesSearchForm">×</button>
-                
-                <!-- Cat 2 Buttons -->
-                <div class="row">
-
-                  <!-- Buttons -->
-                  <div class="col-md-12 text-center" id="catTwoButtons">
-
-                    <!-- Activity Buttons Start -->
-                    <div ng-show="activitiesSearchForm">
-                      <form novalidate>
-                          <div class="btn-group">
-                            <label class="btn btn-primary" ng-model="activitiesModel.Athletic" uib-btn-checkbox>Athletic</label>
-                            <label class="btn btn-primary" ng-model="activitiesModel.Nature" uib-btn-checkbox>Nature</label>
-                            <label class="btn btn-primary" ng-model="activitiesModel.Relaxing" uib-btn-checkbox>Relaxing</label>
-                            <label class="btn btn-primary" ng-model="activitiesModel.Romantic" uib-btn-checkbox>Romantic</label>
-                            <label class="btn btn-primary" ng-model="activitiesModel.Games" uib-btn-checkbox>Games</label>
-                            <label class="btn btn-primary" ng-model="activitiesModel.Cultural" uib-btn-checkbox>Cultural</label>
-                            <label class="btn btn-primary" ng-model="activitiesModel.Artsy" uib-btn-checkbox>Artsy</label>
-                            <label class="btn btn-primary" ng-model="activitiesModel.Beauty" uib-btn-checkbox>Beauty</label>
-                            <label class="btn btn-primary" ng-model="activitiesModel.Inexpensive" uib-btn-checkbox>Inexpensive</label>
-                            <label class="btn btn-primary" ng-model="activitiesModel.Fancy" uib-btn-checkbox>Fancy</label>
-                          </div>
-                          <div>
-                            <button class="btn btn-primary" ng-click="searchValues(activitiesResults)">Search</button>
-                          </div>
-                          <pre>
-                            {{activitiesResults}}
-                          </pre>
-                          <pre>
-                            {{finalData.length}}
-                          </pre>
-
-                        </form>
-                        <!-- <button ng-repeat="button in activitiesButtons" ng-click="ActivitiesInfo = !ActivitiesInfo">{{button}}</button> -->
-                    </div><!-- Activity Buttons End -->
-
-                  </div><!-- End Buttons Col -->
-
-                  <!-- Clear Search -->
-              <!--
-                  <div class="col-md-12 text-center" id="options">
-                    <button onclick="clearSearch()" class="btn btn-primary hide" id="clearButton">Clear Search</button>
-                  </div>
-              -->
-
-                </div><!-- End Cat 2 Buttons -->
-
-              </div><!-- End Hidden Search Form -->
           </section><!-- END ACTIVITY SECTION -->
     
       </div><!-- page and block wrapper end -->    
