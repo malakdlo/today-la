@@ -61,31 +61,61 @@
                   <div class="col-md-12">
                     <button ng-model="foodSearchForm" ng-init="foodSearchForm=false" ng-click=" findCatOne('Food'); foodSearchForm = !foodSearchForm" class="btn btn-primary">Find Food Event</button>
                   </div>
-                  <!-- MODAL START -->
+                  
+                  <!-------------- FOOD BUTTON START ----------------->
                   <div ng-controller="ModalDemoCtrl as $ctrl">
                     <!-- Start Modal Content -->
                       <script type="text/ng-template" id="myModalContent.html">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+                            <h3 class="modal-title" id="modal-title">Select one or more categories to find your perfect grub spot!</h3>
                         </div>
                         <div class="modal-body" id="modal-body">
-                            <ul>
+                          <!-- Food Buttons Start -->
+                            <div ng-controller="SelectController">
+                              <form novalidate>
+                                <div class="btn-group">
+                                  <label class="btn btn-primary" ng-model="foodModel.Casual" uib-btn-checkbox>Casual</label>
+                                  <label class="btn btn-primary" ng-model="foodModel.Breakfast" uib-btn-checkbox>Breakfast</label>
+                                  <label class="btn btn-primary" ng-model="foodModel.Brunch" uib-btn-checkbox>Brunch</label>
+                                  <label class="btn btn-primary" ng-model="foodModel.Lunch" uib-btn-checkbox>Lunch</label>
+                                  <label class="btn btn-primary" ng-model="foodModel.Dinner" uib-btn-checkbox>Dinner</label>
+                                  <label class="btn btn-primary" ng-model="foodModel.Dessert" uib-btn-checkbox>Dessert</label>
+                                  <label class="btn btn-primary" ng-model="foodModel.Romantic" uib-btn-checkbox>Romantic</label>
+                                  <label class="btn btn-primary" ng-model="foodModel.FoodTruck" uib-btn-checkbox>Food Truck</label>
+                                  <label class="btn btn-primary" ng-model="foodModel.FastFood" uib-btn-checkbox>Fast Food</label>
+                                  <label class="btn btn-primary" ng-model="foodModel.Inexpensive" uib-btn-checkbox>Inexpensive</label>
+                                  <label class="btn btn-primary" ng-model="foodModel.Fancy" uib-btn-checkbox>Fancy</label>
+                                </div>
+                                <div>
+                                  <pre>
+                                    {{foodResults}}
+                                  </pre>
+
+                                  <pre>
+                                    {{finalData.length}}
+                                  </pre>
+                                </div>
+
+                              </form>
+                            </div><!-- Food Buttons End -->
+                            <!--<ul>
                                 <li ng-repeat="item in $ctrl.items">
                                     <a href="#" ng-click="$event.preventDefault(); $ctrl.selected.item = item">{{ item }}</a>
                                 </li>
                             </ul>
-                            Selected: <b>{{ $ctrl.selected.item }}</b>
+                            Selected: <b>{{ $ctrl.selected.item }}</b>-->
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
-                            <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+                            <button class="btn btn-primary" ng-click="searchValues(foodResults)">Search</button>
                         </div>
                       </script><!-- End Modal Content -->
                       <!-- Start Modal Button -->
                       <div class="col-md-12">
-                        <button type="button" class="btn btn-default" ng-click="$ctrl.open('lg')">Large modal</button>
+                        <button type="button" class="btn btn-default" ng-click="findCatOne('Food'); $ctrl.open('lg')">Large modal</button>
                       </div><!-- End Modal Button -->
                   </div><!-- END MODAL -->
+                  <!-------------- END MODAL ----------------->
+                  
                 </div><!-- END BUTTON CONTAINER-->
                 <!-- CONTENT LINKS AND INFO -->
                 <!-- FILTER INFO -->
@@ -104,10 +134,10 @@
                 <button type="button" class="close" ng-click="foodSearchForm = !foodSearchForm">×</button>
                 
                 <!-- Cat 2 Buttons -->
-              <div class="row">
+                <div class="row">
 
-                <!-- Buttons -->
-                <div class="col-md-12 text-center" id="catTwoButtons">
+                  <!-- Buttons -->
+                  <div class="col-md-12 text-center" id="catTwoButtons">
 
                   <!-- Food Buttons Start -->
                   <div>
@@ -140,20 +170,12 @@
                       </div>
 
                     </form>
-                <!--             <button class="btn btn-primary" ng-repeat="button in foodButtons" ng-click="FoodInfo = !FoodInfo">{{button}}</button> -->
-            </div><!-- Food Buttons End -->
+                </div><!-- Food Buttons End -->
 
-        </div><!-- End Buttons Col -->
-        
-        <!-- Clear Search -->
-        <!--
-            <div class="col-md-12 text-center" id="options">
-              <button onclick="clearSearch()" class="btn btn-primary hide" id="clearButton">Clear Search</button>
-            </div>
-        -->
+                  </div><!-- End Buttons Col -->
 
-          </div><!-- End Cat 2 Buttons -->
-      </div><!-- End Hidden Search Form -->
+                </div><!-- End Cat 2 Buttons -->
+              </div><!-- End Hidden Search Form -->
               
             <!-------------- END FOOD BUTTON ----------------->
           </section><!-- END FOOD SECTION -->
@@ -277,5 +299,3 @@
                 </div><!-- END CONTENT LINKS AND INFO -->
           </section><!-- END RANDOM / FEELING LUCKY SECTION -->
 
-<section class="block" style="opacity: 1; transform-origin: center center 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
-</section>
