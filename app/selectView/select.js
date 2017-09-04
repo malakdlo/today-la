@@ -626,6 +626,7 @@ angular.module('myApp.selectView', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bo
 
 .controller('ModalDemoCtrl', function ($uibModal, $log, $document) {
   var $ctrl = this;
+
   $ctrl.items = ['item1', 'item2', 'item3'];
 
   $ctrl.animationsEnabled = true;
@@ -637,6 +638,7 @@ angular.module('myApp.selectView', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bo
       animation: $ctrl.animationsEnabled,
       ariaLabelledBy: 'modal-title',
       ariaDescribedBy: 'modal-body',
+      backdrop: true,
       templateUrl: 'myModalContent.html',
       controller: 'ModalInstanceCtrl',
       controllerAs: '$ctrl',
@@ -659,7 +661,7 @@ angular.module('myApp.selectView', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bo
   
 })
 
-.controller('ModalInstanceCtrl', function ($uibModalInstance, items) {
+.controller('ModalInstanceCtrl', function ($uibModalInstance, items, $scope) {
   var $ctrl = this;
   $ctrl.items = items;
   $ctrl.selected = {
@@ -673,4 +675,9 @@ angular.module('myApp.selectView', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bo
   $ctrl.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
+  
+  /*$ctrl.filteredResults = $scope.filteredResults;
+  $ctrl.finalData = $scope.finalData;
+  $ctrl.searchValues = $scope.searchValues;*/
+  
 });

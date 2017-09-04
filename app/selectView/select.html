@@ -59,7 +59,7 @@
                 <!-- BUTTONS -->
                 <div class="row text-center" id="buttons" style="margin-top: 3%">
                   <div class="col-md-12">
-                    <button ng-model="foodSearchForm" ng-init="foodSearchForm=false" ng-click=" findCatOne('Food'); foodSearchForm = !foodSearchForm" class="btn btn-primary">Find Food Event</button>
+                    <button ng-model="foodSearchForm" ng-init="foodSearchForm=false" ng-click="findCatOne('Food'); foodSearchForm = !foodSearchForm" class="btn btn-primary">Find Food Event</button>
                   </div>
                   
                   <!-------------- FOOD BUTTON START ----------------->
@@ -69,9 +69,9 @@
                         <div class="modal-header">
                             <h3 class="modal-title" id="modal-title">Select one or more categories to find your perfect grub spot!</h3>
                         </div>
-                        <div class="modal-body" id="modal-body">
+                        <div class="modal-body" id="modal-body" ng-controller="SelectController">
                           <!-- Food Buttons Start -->
-                            <div ng-controller="SelectController">
+                            <div>
                               <form novalidate>
                                 <div class="btn-group">
                                   <label class="btn btn-primary" ng-model="foodModel.Casual" uib-btn-checkbox>Casual</label>
@@ -86,6 +86,7 @@
                                   <label class="btn btn-primary" ng-model="foodModel.Inexpensive" uib-btn-checkbox>Inexpensive</label>
                                   <label class="btn btn-primary" ng-model="foodModel.Fancy" uib-btn-checkbox>Fancy</label>
                                 </div>
+                                <button class="btn btn-primary" ng-click="searchValues(foodResults)">Search</button>
                                 <div>
                                   <pre>
                                     {{foodResults}}
@@ -105,9 +106,9 @@
                             </ul>
                             Selected: <b>{{ $ctrl.selected.item }}</b>-->
                         </div>
-                        <div class="modal-footer">
+                        <!--<div class="modal-footer">
                             <button class="btn btn-primary" ng-click="searchValues(foodResults)">Search</button>
-                        </div>
+                        </div>-->
                       </script><!-- End Modal Content -->
                       <!-- Start Modal Button -->
                       <div class="col-md-12">
