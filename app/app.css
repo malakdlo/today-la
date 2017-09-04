@@ -852,6 +852,8 @@ footer .mobile {
 }
 
 /**** HOME - SECOND SECTION *****/
+
+/* FOOD BUTTON */
 .home .blocksWrapper .block:first-child {
  margin-top:136px;
  margin-bottom:70px;
@@ -859,22 +861,27 @@ footer .mobile {
 .home .blocksWrapper .block:first-child .block--title {
  color:#f58b24
 }
+
+/* ACTIVITIES BUTTON */
 .home .blocksWrapper .block:nth-child(2) {
- margin-top:136px;
- margin-left:69px;
+  margin-top:136px;
+  margin-left:69px;
   padding-bottom: 30px;
 }
 .home .blocksWrapper .block:nth-child(2) .block--title {
  color:#1ba2f4
 }
+/* RANDOM BUTTON */
 .home .blocksWrapper .block:nth-child(3) {
- margin-top:-190px
+  margin-top: -150px;
+  width: 100%;
 }
 .home .blocksWrapper .block:nth-child(3) .block--title {
  color:#fecc90
 }
 .home .horizontalContainer {
- margin-bottom:175px
+  padding-top:10%;
+  margin-bottom:175px;
 }
 .home .horizontalContainer .catchPhrase p {
  font-size:40px;
@@ -882,6 +889,8 @@ footer .mobile {
  height:40px;
  margin-bottom:30px
 }
+
+/* WHAT HAPPENS WHEN SCREEN IS SMALLER THAN 930PX */
 @media screen and (max-width:930px) {
  .home .centeredContainer {
   width:calc(100% + 40px);
@@ -976,7 +985,6 @@ footer .mobile {
   line-height:18px
  }
  .home .horizontalContainer {
-  display:none
  }
 }
 .features .pageHeader {
