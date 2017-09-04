@@ -2878,9 +2878,15 @@ footer .mobile {
  }
 }
 
+/********************** SUB CATEGORY BUTTON STYLE ***********************/
+#subCatButton {
+  display: inline-block;
+  margin: .25em .25em;
+}
+
 /********************** TITLE STYLE ***********************/
 
-h1 .xbootstrap {
+h1.xbootstrap {
   font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
   font-size:98px;
   font-weight:700;
@@ -2939,7 +2945,6 @@ h1 .xbootstrap {
 	-o-transform: translate(0px, -100%) scale(0, 0);
 	-ms-transform: translate(0px, -100%) scale(0, 0);
 	transform: translate(0px, -100%) scale(0, 0);
-    
     opacity: 0;
 }
 

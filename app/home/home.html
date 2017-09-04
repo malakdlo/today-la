@@ -1,29 +1,27 @@
 <div class="headerWrapper">
   <header>
       <nav>
-          <a href="#!/view4" class="nav-home active">
+          <a href="#!/home" class="nav-home active">
               Home
           </a>
-          <a href="#!/select">Select</a>
-          <a href="#!/filtersearch">Filter Only</a>
       </nav>
       <div class="logo">
-          <a href="/#" class="logo--link">
+          <a href="#!/home" class="logo--link">
               <img src="images/todayLA-temp-logo.png" width="75px" height="75px">
           </a>
       </div>
       <div class="right">
-          <a href="#!/select" class="cta cta-border cta-transparent cta--sign-up nav-signUp">Find an Event</a>
+          <a href="#!/home" class="cta cta-border cta-transparent cta--sign-up nav-signUp">Find an Event</a>
       </div>
 
       <div class="mobile">
           <div class="link active">
-              <a href="#!/view4" class="nav-home active">
+              <a href="#!/home" class="nav-home active">
               Home
               </a>
           </div>
           <div class="logo">
-              <a href="#!/view4" class="logo--link">
+              <a href="#!/home" class="logo--link">
                   <img src="images/todayLA-temp-logo.png" width="50px" height="50px">
               </a>
           </div>
@@ -31,7 +29,7 @@
 
       <ul class="mobile-dropdown">
           <li>
-              <a href="/">
+              <a href="#!/home">
                   Home
               </a>
           </li>
@@ -65,7 +63,7 @@
           </div>
 
           <div class="catchCta">
-              <a href="#!/select" class="cta cta-colored cta-blue cta--invite" style="opacity: 1; width: 208px; transform-origin: center center 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+              <a href="#!/home" class="cta cta-colored cta-blue cta--invite" style="opacity: 1; width: 208px; transform-origin: center center 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
                   <span>Find An Event</span>
               </a>
           </div>
@@ -73,10 +71,10 @@
   </div>
 
   <!-- ACTIVITIES AND FOOD SECTION -->
-  <section class="blocks">
+  <section class="blocks" ng-controller="SelectController">
     <div class="pageWrapper blocksWrapper">
-          <!-- FOOD SECTION  -->
-          <section ng-controller="SelectController" class="block" style="opacity: 1; transform-origin: center center 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+          <!-------------- FOOD SECTION ----------------->
+          <section class="block" style="opacity: 1; transform-origin: center center 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
               <h3 class="block--title">
                   Food
               </h3>
@@ -86,13 +84,12 @@
               <div class="block--text">
               </div>
             
-              <!-------------- FOOD BUTTON START ----------------->
               <!-- Title, Search Buttons -->
               <div>
                 <!-- BUTTONS -->
                 <div class="row text-center" id="buttons" style="margin-top: 3%">
                   <div class="col-md-12">
-                    <button ng-model="foodSearchForm" ng-init="foodSearchForm=false" ng-click=" findCatOne('Food'); foodSearchForm = !foodSearchForm" class="btn btn-primary">Find Food Event</button>
+                    <button ng-model="foodSearchForm" ng-init="foodSearchForm=false" ng-click="findCatOne('Food'); foodSearchForm = !foodSearchForm" class="btn btn-primary">Find Food Event</button>
                   </div>
                 </div>
                 <!-- CONTENT LINKS AND INFO -->
@@ -105,68 +102,59 @@
                   </div>
                 </div>
               </div><!-- End Title, Search Buttons -->
+            
+          <!-- FOOD AND ACTIVITIES SUB CATEGORY BUTTONS -->
+          <div class="row text-center" ng-show="foodSearchForm">
+              <div>
+                    <button type="button" class="close" ng-click="foodSearchForm = !foodSearchForm">×</button>
+                    <div id="catTwoButtons">
+                          <!-- Food Buttons Start -->
+                            <form novalidate>
+                              <div class="btn-group">
+                                
+                                  <button class="btn btn-primary" ng-model="foodModel.Casual" uib-btn-checkbox>Casual</button>
+                                  <button class="btn btn-primary" ng-model="foodModel.Breakfast" uib-btn-checkbox>Breakfast</button>
+                                  <button class="btn btn-primary" ng-model="foodModel.Brunch" uib-btn-checkbox>Brunch</button>
 
-              <!-- Start Hidden Food Form -->
-              <div id="foodSearch" ng-show="foodSearchForm">
+                                
+                                  <button class="btn btn-primary" ng-model="foodModel.Lunch" uib-btn-checkbox>Lunch</button>
+                                  <button class="btn btn-primary" ng-model="foodModel.Dinner" uib-btn-checkbox>Dinner</button>
+                                  <button class="btn btn-primary" ng-model="foodModel.Dessert" uib-btn-checkbox>Dessert</button>
 
-                <button type="button" class="close" ng-click="foodSearchForm = !foodSearchForm">×</button>
-                
-                <!-- Cat 2 Buttons -->
-              <div class="row">
+                                
+                                  <button class="btn btn-primary" ng-model="foodModel.Romantic" uib-btn-checkbox>Romantic</button>
+                                  <button class="btn btn-primary" ng-model="foodModel.FoodTruck" uib-btn-checkbox>Food Truck</button>
+                                  <button class="btn btn-primary" ng-model="foodModel.FastFood" uib-btn-checkbox>Fast Food</button>  
 
-                <!-- Buttons -->
-                <div class="col-md-12 text-center" id="catTwoButtons">
+                                
+                                  <button class="btn btn-primary" ng-model="foodModel.Inexpensive" uib-btn-checkbox>Inexpensive</button>
+                                  <button class="btn btn-primary" ng-model="foodModel.Fancy" uib-btn-checkbox>Fancy</button>  
+                                  <button class="btn btn-primary" ng-model="foodModel.Fancy" uib-btn-checkbox>Fancy</button>  
 
-                  <!-- Food Buttons Start -->
-                  <div>
-                    <form novalidate>
-                      <div class="btn-group">
-                        <label class="btn btn-primary" ng-model="foodModel.Casual" uib-btn-checkbox>Casual</label>
-                        <label class="btn btn-primary" ng-model="foodModel.Breakfast" uib-btn-checkbox>Breakfast</label>
-                        <label class="btn btn-primary" ng-model="foodModel.Brunch" uib-btn-checkbox>Brunch</label>
-                        <label class="btn btn-primary" ng-model="foodModel.Lunch" uib-btn-checkbox>Lunch</label>
-                        <label class="btn btn-primary" ng-model="foodModel.Dinner" uib-btn-checkbox>Dinner</label>
-                        <label class="btn btn-primary" ng-model="foodModel.Dessert" uib-btn-checkbox>Dessert</label>
-                        <label class="btn btn-primary" ng-model="foodModel.Romantic" uib-btn-checkbox>Romantic</label>
-                        <label class="btn btn-primary" ng-model="foodModel.FoodTruck" uib-btn-checkbox>Food Truck</label>
-                        <label class="btn btn-primary" ng-model="foodModel.FastFood" uib-btn-checkbox>Fast Food</label>
-                        <label class="btn btn-primary" ng-model="foodModel.Inexpensive" uib-btn-checkbox>Inexpensive</label>
-                        <label class="btn btn-primary" ng-model="foodModel.Fancy" uib-btn-checkbox>Fancy</label>
-                      </div>
-                      <div>
-                        <button class="btn btn-primary" ng-click="searchValues(foodResults)">Search</button>
-                      </div>
+                              </div>
+                              <div>
+                                <button class="btn btn-primary" ng-click="searchValues(foodResults); foodSearchForm = !foodSearchForm">Search</button>
+                                <button class="btn btn-primary" ng-click="foodSearchForm = !foodSearchForm">Clear Search</button>
+                              </div>
 
-                      <div>
-                        <pre>
-                          {{foodResults}}
-                        </pre>
+                              <div>
+                                <pre>
+                                  {{foodResults}}
+                                </pre>
 
-                        <pre>
-                          {{finalData.length}}
-                        </pre>
-                      </div>
+                                <pre>
+                                  {{finalData.length}}
+                                </pre>
+                              </div>
+                            </form>
 
-                    </form>
-                <!--             <button class="btn btn-primary" ng-repeat="button in foodButtons" ng-click="FoodInfo = !FoodInfo">{{button}}</button> -->
-            </div><!-- Food Buttons End -->
-
-        </div><!-- End Buttons Col -->
-        
-        <!-- Clear Search -->
-        <!--
-            <div class="col-md-12 text-center" id="options">
-              <button onclick="clearSearch()" class="btn btn-primary hide" id="clearButton">Clear Search</button>
+                  </div><!-- End Buttons Col -->
             </div>
-        -->
-
-          </div><!-- End Cat 2 Buttons -->
-      </div><!-- End Hidden Search Form -->
-              <!-------------- END FOOD BUTTON ----------------->
-    </section><!-- END FOOD SECTION -->
+          </div><!-- END FOOD AND ACTIVITIES SUB CATEGORY BUTTONS -->
+          </section><!-- END FOOD SECTION -->
         
-          <!-- ACTIVITY SECTION -->
-          <section ng-controller="SelectController" class="block" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0); transform-origin: center center 0px;">
+          <!-------------- ACTIVITIES SECTION ----------------->
+          <section class="block" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0); transform-origin: center center 0px;">
               <h3 class="block--title">
                   Activities
               </h3>
@@ -248,8 +236,9 @@
 
               </div><!-- End Hidden Search Form -->
           </section><!-- END ACTIVITY SECTION -->
-          
+      
       </div><!-- page and block wrapper end --> 
+    
 </section><!-- END ACTIVITIES AND FOOD SECTION -->
 
 

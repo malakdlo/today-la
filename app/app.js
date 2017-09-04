@@ -6,18 +6,12 @@ angular.module('myApp', [
   'ui.bootstrap',
   'ngSanitize', 
   'angular.filter',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.view3',
-  'myApp.view4',
-  'myApp.view5',
-  'myApp.selectView',
-  'myApp.randomView',
-  'myApp.filterView',
-  'myApp.version'
+  'myApp.home',
+  'myApp.select',
+  'myApp.random'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 
-  $routeProvider.otherwise({redirectTo: '/view4'});
+  $routeProvider.otherwise({redirectTo: '/home'});
 }]);

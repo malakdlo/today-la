@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.selectView', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootstrap'])
+angular.module('myApp.select', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootstrap'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/select', {
