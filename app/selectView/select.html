@@ -61,7 +61,32 @@
                   <div class="col-md-12">
                     <button ng-model="foodSearchForm" ng-init="foodSearchForm=false" ng-click=" findCatOne('Food'); foodSearchForm = !foodSearchForm" class="btn btn-primary">Find Food Event</button>
                   </div>
-                </div>
+                  <!-- MODAL START -->
+                  <div ng-controller="ModalDemoCtrl as $ctrl">
+                    <!-- Start Modal Content -->
+                      <script type="text/ng-template" id="myModalContent.html">
+                        <div class="modal-header">
+                            <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+                        </div>
+                        <div class="modal-body" id="modal-body">
+                            <ul>
+                                <li ng-repeat="item in $ctrl.items">
+                                    <a href="#" ng-click="$event.preventDefault(); $ctrl.selected.item = item">{{ item }}</a>
+                                </li>
+                            </ul>
+                            Selected: <b>{{ $ctrl.selected.item }}</b>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
+                            <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+                        </div>
+                      </script><!-- End Modal Content -->
+                      <!-- Start Modal Button -->
+                      <div class="col-md-12">
+                        <button type="button" class="btn btn-default" ng-click="$ctrl.open('lg')">Large modal</button>
+                      </div><!-- End Modal Button -->
+                  </div><!-- END MODAL -->
+                </div><!-- END BUTTON CONTAINER-->
                 <!-- CONTENT LINKS AND INFO -->
                 <!-- FILTER INFO -->
                 <div class="row text-center" id="content">
@@ -129,8 +154,9 @@
 
           </div><!-- End Cat 2 Buttons -->
       </div><!-- End Hidden Search Form -->
-              <!-------------- END FOOD BUTTON ----------------->
-    </section><!-- END FOOD SECTION -->
+              
+            <!-------------- END FOOD BUTTON ----------------->
+          </section><!-- END FOOD SECTION -->
         
           <!-- ACTIVITY SECTION -->
           <section class="block" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0); transform-origin: center center 0px;">
@@ -251,3 +277,5 @@
                 </div><!-- END CONTENT LINKS AND INFO -->
           </section><!-- END RANDOM / FEELING LUCKY SECTION -->
 
+<section class="block" style="opacity: 1; transform-origin: center center 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+</section>

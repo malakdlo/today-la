@@ -76,7 +76,7 @@
   <section class="blocks">
     <div class="pageWrapper blocksWrapper">
           <!-- FOOD SECTION  -->
-          <section class="block" style="opacity: 1; transform-origin: center center 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+          <section ng-controller="SelectController" class="block" style="opacity: 1; transform-origin: center center 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
               <h3 class="block--title">
                   Food
               </h3>
@@ -166,7 +166,7 @@
     </section><!-- END FOOD SECTION -->
         
           <!-- ACTIVITY SECTION -->
-          <section class="block" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0); transform-origin: center center 0px;">
+          <section ng-controller="SelectController" class="block" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0); transform-origin: center center 0px;">
               <h3 class="block--title">
                   Activities
               </h3>
@@ -254,9 +254,9 @@
 
 
   <!-- FEELING LUCKY / RANDOM -->
-  <div class="pageWrapper">
+  <div class="pageWrapper" ng-controller="RandomCtrl">
       <!-- TITLE -->
-      <div class="horizontalContainer" ng-controller="RandomCtrl">
+      <div class="horizontalContainer">
           <div class="catchPhrase catchPhrase-light-margin catchPhrase-large">
               <p class="black">Feeling Lucky?</p>
           </div>
@@ -270,7 +270,7 @@
           <div class="row text-center" id="content">
             <!-- RANDOM INFO -->
             <div class="col-12" id="randomContainer" ng-show="status">
-                <h2 id="randomEventTitle" class="retroshd"></h2>
+                <h1 id="randomEventTitle" class="xbootstrap"></h1>
                 <p id="randomDetails"></p>
                 <a href="" id="randomLink" target="_blank"></a>
                 <br>
