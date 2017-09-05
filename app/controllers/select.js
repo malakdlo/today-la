@@ -489,6 +489,8 @@ angular.module('myApp.select', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootst
 ];
   $scope.filteredResults = [];
   $scope.finalData = [];
+  $scope.randomEvent = [];
+  $scope.selectedCategory;
   
   // Food Model
   $scope.foodModel = { 
@@ -506,6 +508,7 @@ angular.module('myApp.select', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootst
   };
   $scope.foodResults = [];
   $scope.$watchCollection('foodModel', function(){
+      console.log("*************** Food Results Watcher ***************")
       $scope.foodResults = [];
       angular.forEach($scope.foodModel, function(value, key){
         if(value){
@@ -521,7 +524,18 @@ angular.module('myApp.select', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootst
     });// End Watcher
   
   // Activities Model
-  $scope.activitiesModel = { Athletic: false, Nature: false, Relaxing: false, Romantic : false, Games: false, Cultural: false, Artsy: false, Beauty: false, Inexpensive: false, Fancy: false };
+  $scope.activitiesModel = { 
+    Athletic: false, 
+    Nature: false, 
+    Relaxing: false, 
+    Romantic : false, 
+    Games: false, 
+    Cultural: false, 
+    Artsy: false, 
+    Beauty: false, 
+    Inexpensive: false, 
+    Fancy: false 
+  };
   $scope.activitiesResults = [];
   $scope.$watchCollection('activitiesModel', function(){
       $scope.activitiesResults = [];
@@ -564,30 +578,16 @@ angular.module('myApp.select', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootst
  "Inexpensive",
  "Fancy"
 ];
-  $scope.title = "Title";
   
   
 /* MAIN FUNCTIONS */
-  // Open and Close Food Form
-  $scope.openFoodForm = function(){
-    document.getElementById('foodSearch').setAttribute('class', 'open');
-  };
-  $scope.closeFoodForm = function(){        
-    document.getElementById('foodSearch').setAttribute('class', '');
-  };
-  // Open and Close Activities Form
-  $scope.openActivitiesForm = function(){
-    document.getElementById('activitiesSearch').setAttribute('class', 'open');
-  };
-  $scope.closeActivitiesForm = function(){        
-    document.getElementById('activitiesSearch').setAttribute('class', '');
-  };
-  
+    
   // Filters
   $scope.findCatOne = function(category){
     console.log("Value of passed in category");
     console.log(category);
-/************* Filter for objects that have "category 1" == category  *************/
+    $scope.selectedCategory = category;
+  /************* Filter for objects that have "category 1" == category  *************/
      $scope.filteredResults = $scope.results.filter(function(arr){
       // console.log("Value of arr inside of filter")
       // console.log(arr)
@@ -603,23 +603,69 @@ angular.module('myApp.select', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootst
     return $scope.filteredResults;
   }// End findCatOne
   $scope.searchValues = function(catArr){
+    console.log("*************** searchValues func ***************")
     var catArrItem, filteredDataObj;
-    $scope.finalData = [];
+    // Test Variables
+    /*console.log("Passed in array of categories: ", catArr);
+    console.log("Final Data: ", $scope.finalData);
+    console.log("Event", $scope.randomEvent);*/
+    // End Test Variables
     
+    // Filter for multiple values pushed into catArr
     for(var i =  0; i < $scope.filteredResults.length; i++){
-    filteredDataObj = $scope.filteredResults[i];
-    for(var j = 0; j < catArr.length; j++){
-      catArrItem = catArr[j];
-
-      if(filteredDataObj.category2.indexOf(catArrItem) !== -1 && $scope.finalData.indexOf(filteredDataObj) === -1){
-        $scope.finalData.push(filteredDataObj);
-      }// End if
-    }// End Inside For Loop
-  }// End Outside For Loop
-  
-  return $scope.finalData;
+      filteredDataObj = $scope.filteredResults[i];
+      for(var j = 0; j < catArr.length; j++){
+        catArrItem = catArr[j];
+        if(filteredDataObj.category2.indexOf(catArrItem) !== -1 && $scope.finalData.indexOf(filteredDataObj) === -1){
+          $scope.finalData.push(filteredDataObj);
+        }// End if
+      }// End Inside For Loop
+    }// End Outside For Loop
+    
+    // Randomly select event from finalData array
+    var randomNum = $scope.getRandomInt(0, $scope.finalData.length);
+    $scope.randomEvent.push($scope.finalData[randomNum]);
+    
+    return $scope.randomEvent;  
   } // End searchValues function
-  
+  $scope.clearSearch = function(){
+    $scope.filteredResults = [];
+    $scope.finalData = [];
+    $scope.randomEvent = [];
+    if($scope.selectedCategory === 'Food'){
+      $scope.foodModel = { 
+    Casual: false, 
+    Breakfast: false, 
+    Brunch: false, 
+    Lunch: false, 
+    Dinner: false, 
+    Dessert: false, 
+    Romantic: false, 
+    FoodTruck: false, 
+    FastFood: false, 
+    Inexpensive: false, 
+    Fancy: false 
+  };
+    }
+    if($scope.selectedCategory === 'Activities'){
+      $scope.activitiesModel = { 
+    Athletic: false, 
+    Nature: false, 
+    Relaxing: false, 
+    Romantic : false, 
+    Games: false, 
+    Cultural: false, 
+    Artsy: false, 
+    Beauty: false, 
+    Inexpensive: false, 
+    Fancy: false 
+  };
+    }
+    $scope.selectedCategory = '';
+  };
 /* HELPER FUNCTIONS */
-  
+  $scope.getRandomInt = function(min, max){
+    var min = Math.ceil(min), max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
+  }
 });

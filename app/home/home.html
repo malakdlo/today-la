@@ -93,17 +93,19 @@
                   </div>
                 </div>
                 <!-- CONTENT LINKS AND INFO -->
-                <!-- FILTER INFO -->
-                <div class="row text-center" id="content">
+                <div class="row text-center" id="content" style="margin-top: 2%;" ng-if="randomEvent.length > 0 && selectedCategory === 'Food'">
                   <div class="col-12" id="results">
+                    <p>{{randomEvent[0].name}}</p>
+                    <p>{{randomEvent[0].details}}</p>
+                    <a href="{{randomEvent[0].link}}" target="_blank">Link</a>
                   </div>
                   <div class="col-md-12 text-center" id="options">
-                    <button onclick="clearSearch()" class="btn btn-primary hide" id="clearButton">Clear Search</button>
+                    <button ng-click="clearSearch()" class="btn btn-primary">Clear Search</button>
                   </div>
                 </div>
               </div><!-- End Title, Search Buttons -->
             
-          <!-- FOOD AND ACTIVITIES SUB CATEGORY BUTTONS -->
+          <!-- FOOD SUB CATEGORY BUTTONS -->
           <div class="row text-center" ng-show="foodSearchForm">
               <div>
                     <button type="button" class="close" ng-click="foodSearchForm = !foodSearchForm">×</button>
@@ -132,25 +134,32 @@
                                   <button class="btn btn-primary" ng-model="foodModel.Fancy" uib-btn-checkbox>Fancy</button>  
 
                               </div>
-                              <div>
-                                <button class="btn btn-primary" ng-click="searchValues(foodResults); foodSearchForm = !foodSearchForm">Search</button>
-                                <button class="btn btn-primary" ng-click="foodSearchForm = !foodSearchForm">Clear Search</button>
-                              </div>
-
-                              <div>
+                              <!-- Test Data -->
+                              <!--<div>
+                                <p>Food Results</p>
                                 <pre>
                                   {{foodResults}}
                                 </pre>
-
+                                <p>Final Data</p>
                                 <pre>
                                   {{finalData.length}}
                                 </pre>
-                              </div>
+                                <p>Event</p>
+                                <pre>
+                                  {{randomEvent[0].name}}
+                                  {{randomEvent[0].details}}
+                                  {{randomEvent[0].link}}
+                                </pre>
+                              </div>-->
                             </form>
+                            <div>
+                                <button class="btn btn-primary" ng-click="searchValues(foodResults); foodSearchForm = !foodSearchForm">Search</button>
+                                <button class="btn btn-primary" ng-click="foodSearchForm = !foodSearchForm">Close</button>
+                            </div>
 
                   </div><!-- End Buttons Col -->
             </div>
-          </div><!-- END FOOD AND ACTIVITIES SUB CATEGORY BUTTONS -->
+          </div><!-- END FOOD SUB CATEGORY BUTTONS -->
           </section><!-- END FOOD SECTION -->
         
           <!-------------- ACTIVITIES SECTION ----------------->
@@ -169,16 +178,18 @@
                 <!-- BUTTONS -->
                 <div class="row text-center" id="buttons" style="margin-top: 3%">
                   <div class="col-md-12">
-                    <button ng-model="activitiesSearchForm" ng-init="activitiesSearchForm=false" ng-click=" findCatOne('Activities'); activitiesSearchForm = !activitiesSearchForm" class="btn btn-primary">Find Activity</button>
+                    <button ng-model="activitiesSearchForm" ng-init="activitiesSearchForm=false" ng-click="findCatOne('Activities'); activitiesSearchForm = !activitiesSearchForm" class="btn btn-primary">Find Activity</button>
                   </div>
                 </div>
                 <!-- CONTENT LINKS AND INFO -->
-                <!-- FILTER INFO -->
-                <div class="row text-center" id="content">
+                <div class="row text-center" id="content" style="margin-top: 2%;" ng-if="randomEvent.length > 0 && selectedCategory === 'Activities'">
                   <div class="col-12" id="results">
+                    <p>{{randomEvent[0].name}}</p>
+                    <p>{{randomEvent[0].details}}</p>
+                    <a href="{{randomEvent[0].link}}" target="_blank">Link</a>
                   </div>
                   <div class="col-md-12 text-center" id="options">
-                    <button onclick="clearSearch()" class="btn btn-primary hide" id="clearButton">Clear Search</button>
+                    <button ng-click="clearSearch()" class="btn btn-primary">Clear Search</button>
                   </div>
                 </div>
               </div><!-- End Title, Search Buttons -->
@@ -195,7 +206,7 @@
                   <div class="col-md-12 text-center" id="catTwoButtons">
 
                     <!-- Activity Buttons Start -->
-                    <div ng-show="activitiesSearchForm">
+                    <div>
                       <form novalidate>
                           <div class="btn-group">
                             <label class="btn btn-primary" ng-model="activitiesModel.Athletic" uib-btn-checkbox>Athletic</label>
@@ -209,29 +220,14 @@
                             <label class="btn btn-primary" ng-model="activitiesModel.Inexpensive" uib-btn-checkbox>Inexpensive</label>
                             <label class="btn btn-primary" ng-model="activitiesModel.Fancy" uib-btn-checkbox>Fancy</label>
                           </div>
-                          <div>
-                            <button class="btn btn-primary" ng-click="searchValues(activitiesResults)">Search</button>
-                          </div>
-                          <pre>
-                            {{activitiesResults}}
-                          </pre>
-                          <pre>
-                            {{finalData.length}}
-                          </pre>
-
                         </form>
                         <!-- <button ng-repeat="button in activitiesButtons" ng-click="ActivitiesInfo = !ActivitiesInfo">{{button}}</button> -->
+                        <div>
+                          <button class="btn btn-primary" ng-click="searchValues(activitiesResults); activitiesSearchForm = !activitiesSearchForm">Search</button>
+                          <button class="btn btn-primary" ng-click="activitiesSearchForm = !activitiesSearchForm">Close</button>
+                        </div>
                     </div><!-- Activity Buttons End -->
-
                   </div><!-- End Buttons Col -->
-
-                  <!-- Clear Search -->
-              <!--
-                  <div class="col-md-12 text-center" id="options">
-                    <button onclick="clearSearch()" class="btn btn-primary hide" id="clearButton">Clear Search</button>
-                  </div>
-              -->
-
                 </div><!-- End Cat 2 Buttons -->
 
               </div><!-- End Hidden Search Form -->

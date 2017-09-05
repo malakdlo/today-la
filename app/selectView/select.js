@@ -489,6 +489,7 @@ angular.module('myApp.selectView', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bo
 ];
   $scope.filteredResults = [];
   $scope.finalData = [];
+  $scope.randomEvent = [];
   
   // Food Model
   $scope.foodModel = { 
@@ -506,6 +507,7 @@ angular.module('myApp.selectView', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bo
   };
   $scope.foodResults = [];
   $scope.$watchCollection('foodModel', function(){
+      console.log("*************** Food Results Watcher ***************")
       $scope.foodResults = [];
       angular.forEach($scope.foodModel, function(value, key){
         if(value){
@@ -568,26 +570,28 @@ angular.module('myApp.selectView', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bo
   
   
 /* MAIN FUNCTIONS */
-  // Open and Close Food Form
+  /* Open and close Forms Using .setAttribute */
+  /*
   $scope.openFoodForm = function(){
     document.getElementById('foodSearch').setAttribute('class', 'open');
   };
   $scope.closeFoodForm = function(){        
     document.getElementById('foodSearch').setAttribute('class', '');
   };
-  // Open and Close Activities Form
   $scope.openActivitiesForm = function(){
     document.getElementById('activitiesSearch').setAttribute('class', 'open');
   };
   $scope.closeActivitiesForm = function(){        
     document.getElementById('activitiesSearch').setAttribute('class', '');
   };
-  
+
+  */
+    
   // Filters
   $scope.findCatOne = function(category){
     console.log("Value of passed in category");
     console.log(category);
-/************* Filter for objects that have "category 1" == category  *************/
+  /************* Filter for objects that have "category 1" == category  *************/
      $scope.filteredResults = $scope.results.filter(function(arr){
       // console.log("Value of arr inside of filter")
       // console.log(arr)
@@ -603,23 +607,48 @@ angular.module('myApp.selectView', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bo
     return $scope.filteredResults;
   }// End findCatOne
   $scope.searchValues = function(catArr){
+    console.log("*************** searchValues func ***************")
     var catArrItem, filteredDataObj;
-    $scope.finalData = [];
     
+    // Test Variables
+    console.log("Passed in array of categories: ", catArr);
+    console.log("Final Data: ", $scope.finalData);
+    console.log("Event", $scope.event);
+    // End Test Variables
+    
+    // Filter for multiple values pushed into catArr
     for(var i =  0; i < $scope.filteredResults.length; i++){
-    filteredDataObj = $scope.filteredResults[i];
-    for(var j = 0; j < catArr.length; j++){
-      catArrItem = catArr[j];
+      filteredDataObj = $scope.filteredResults[i];
+      for(var j = 0; j < catArr.length; j++){
+        catArrItem = catArr[j];
+        if(filteredDataObj.category2.indexOf(catArrItem) !== -1 && $scope.finalData.indexOf(filteredDataObj) === -1){
+          $scope.finalData.push(filteredDataObj);
+        }// End if
+      }// End Inside For Loop
+    }// End Outside For Loop
+    
+    // Randomly select event from finalData array
+    /*
+    console.log("Final Data Array has been created, will select random event to display.");
+    var randomNum = $scope.getRandomInt(0, $scope.finalData.length);
+    console.log("Will display event number ", randomNum);
+    $scope.event.push($scope.finalData[randomNum]);
+    console.log("Event object");
+    console.log($scope.event);
 
-      if(filteredDataObj.category2.indexOf(catArrItem) !== -1 && $scope.finalData.indexOf(filteredDataObj) === -1){
-        $scope.finalData.push(filteredDataObj);
-      }// End if
-    }// End Inside For Loop
-  }// End Outside For Loop
-  
-  return $scope.finalData;
+    return $scope.event;  
+    */  
+    
   } // End searchValues function
+  $scope.findEvent = function(){
+    var randomNum = $scope.getRandomInt(0, $scope.finalData.length);
+    $scope.randomEvent.push($scope.finalData[randomNum]);
+    return $scope.randomEvent;
+  }
   
 /* HELPER FUNCTIONS */
-  
+  $scope.getRandomInt = function(min, max){
+    var min = Math.ceil(min), max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
+  }
 });
