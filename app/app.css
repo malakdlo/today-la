@@ -678,7 +678,7 @@ footer .mobile {
 }
 @media screen and (min-height:900px) {
  .home .centeredContainer {
-  margin-top:140px;
+  margin-top:50px;
   margin-bottom:220px
  }
 }
@@ -700,19 +700,19 @@ footer .mobile {
  -moz-user-select:none;
  -ms-user-select:none;
  user-select:none;
- font-size:300px;
- height:300px;
+ font-size:230px;
+ height:230px;
  -webkit-transform:translate3d(-30px,0,0);
  transform:translate3d(-30px,0,0);
  display:inline-block;
  position:relative
 }
-.home .centeredContainer .catchZone #intro:after {
+.home .centeredContainer .catchZone #intro #last:after {
  content:"|";
  position:absolute;
  right:-150px;
  top:0;
- font-size:300px;
+ font-size:230px;
  color:#000;
  opacity:0;
  -webkit-transform:translate3d(0,-20px,0) scale(.97);
@@ -781,7 +781,7 @@ footer .mobile {
  -webkit-justify-content:center;
  -ms-flex-pack:center;
  justify-content:center;
- margin-top:16px;
+ margin-top:5px;
  margin-bottom:48px
 }
 .home .catchPhrase p {
