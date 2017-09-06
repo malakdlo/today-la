@@ -89,7 +89,7 @@
                 <!-- BUTTONS -->
                 <div class="row text-center" id="buttons" style="margin-top: 3%">
                   <div class="col-md-12">
-                    <button ng-model="foodSearchForm" ng-init="foodSearchForm=false" ng-click="findCatOne('Food'); foodSearchForm = !foodSearchForm" class="btn btn-primary">Find Food Event</button>
+                    <button class="cta cta-colored cta-blue" ng-model="foodSearchForm" ng-init="foodSearchForm=false" ng-click="findCatOne('Food'); foodSearchForm = !foodSearchForm" class="btn btn-primary">Find Food Event</button>
                   </div>
                 </div>
                 <!-- CONTENT LINKS AND INFO -->
@@ -178,7 +178,7 @@
                 <!-- BUTTONS -->
                 <div class="row text-center" id="buttons" style="margin-top: 3%">
                   <div class="col-md-12">
-                    <button ng-model="activitiesSearchForm" ng-init="activitiesSearchForm=false" ng-click="findCatOne('Activities'); activitiesSearchForm = !activitiesSearchForm" class="btn btn-primary">Find Activity</button>
+                    <button ng-model="activitiesSearchForm" ng-init="activitiesSearchForm=false" ng-click="findCatOne('Activities'); activitiesSearchForm = !activitiesSearchForm" class="cta cta-colored cta-blue">Find Activity</button>
                   </div>
                 </div>
                 <!-- CONTENT LINKS AND INFO -->
@@ -255,7 +255,7 @@
           <div class="row text-center" id="content">
             <!-- RANDOM INFO -->
             <div class="col-12" id="randomContainer" ng-show="status">
-                <h1 id="randomEventTitle" class="xbootstrap"></h1>
+                <h1 id="randomEventTitle"></h1>
                 <p id="randomDetails"></p>
                 <a href="" id="randomLink" target="_blank"></a>
                 <br>

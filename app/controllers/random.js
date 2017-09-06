@@ -16,7 +16,6 @@ angular.module('myApp.random', ['ngRoute'])
 .factory('RandomFactory', function(){
   
   var RandomFactory = this;
-  
   /* DATA */
   RandomFactory.results = [
    {
