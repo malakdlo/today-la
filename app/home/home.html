@@ -263,9 +263,9 @@
           <div class="row text-center" id="content">
             <!-- RANDOM INFO -->
             <div class="col-12" id="randomContainer" ng-show="status">
-                <h1 id="randomEventTitle"></h1>
-                <p id="randomDetails"></p>
-                <a href="" id="randomLink" target="_blank"></a>
+                <h1 id="randomEventTitle">{{event.name}}</h1>
+                <p id="randomDetails">{{event.details}}</p>
+                <a href="{{event.link}}" id="randomLink" target="_blank">Link</a>
                 <br>
                 <button ng-click="clearRandomSearch(); status = !status" class="btn btn-primary" id="clearButton">Clear Search</button>
             </div>

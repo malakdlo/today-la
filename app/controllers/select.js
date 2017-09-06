@@ -8,16 +8,17 @@ angular.module('myApp.select', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootst
     controller: 'SelectController'
   });
 }])
-
-.controller('SelectController', function($scope, $http) {
-  
-  $http({
-  method: 'GET',
-  url: 'https://script.google.com/macros/s/AKfycbyFVpKhx9l7s0xSV--KJoa21BgfqHpCrqqjgEYdJTOnh673vZE/exec'
-  }).then(function successCallback(response) {
-    console.log("*************** Success Callback ***************");
-    console.log(response.data);
-    $scope.results = response.data;
+.controller('SelectController', function($scope, EventsFactory) {
+  console.log("*************** SelectController ***************");
+  /* DATA */
+  EventsFactory.getData().then(function(data){
+    $scope.results = EventsFactory.results;
+    console.log("EventsFactory.results inside of SelectController");
+    console.log(EventsFactory.results);
+    console.log("$scope.results inside of SelectController");
+    console.log($scope.results);
+  });
+    
     $scope.filteredResults = [];
     $scope.finalData = [];
     $scope.randomEvent = [];
@@ -113,6 +114,7 @@ angular.module('myApp.select', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootst
   /* MAIN FUNCTIONS */
     // Filters
     $scope.findCatOne = function(category){
+      console.log("*************** findCatOne ***************");
       console.log("Value of passed in category");
       console.log(category);
       $scope.selectedCategory = category;
@@ -124,7 +126,6 @@ angular.module('myApp.select', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootst
       });// end filter
       // TEST
       // Origional length of the events array and resulting eventsFilteredArr length.
-      console.log("*************** findCatOne func ***************")
       console.log("Total Num of events: ", $scope.results.length);
       console.log("Total Num of events after filter: ", $scope.filteredResults.length);
       console.log($scope.filteredResults);
@@ -132,7 +133,7 @@ angular.module('myApp.select', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootst
       return $scope.filteredResults;
     }// End findCatOne
     $scope.searchValues = function(catArr){
-      console.log("*************** searchValues func ***************")
+      console.log("*************** searchValues ***************")
       var catArrItem, filteredDataObj;
       // Test Variables
       /*console.log("Passed in array of categories: ", catArr);
@@ -158,6 +159,7 @@ angular.module('myApp.select', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootst
       return $scope.randomEvent;  
     } // End searchValues function
     $scope.clearSearch = function(){
+      console.log("*************** ClearSearch ***************");
       $scope.filteredResults = [];
       $scope.finalData = [];
       $scope.randomEvent = [];
@@ -197,9 +199,42 @@ angular.module('myApp.select', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootst
       var min = Math.ceil(min), max = Math.floor(max);
       return Math.floor(Math.random() * (max - min) + min);
     }
-  }, function errorCallback(response) {
-    console.log("*************** Error Callback ***************");
-    console.log(response.statusText);
-  });
+  
+})
+.factory('EventsFactory', function($http, $q){
+  console.log("*************** EventsFactory ***************");
+  var EventsFactory = this;
+  
+  EventsFactory.getData = function()
+  {
+    var deferred = $q.defer();
+    
+    $http.get('https://script.google.com/macros/s/AKfycbyFVpKhx9l7s0xSV--KJoa21BgfqHpCrqqjgEYdJTOnh673vZE/exec').then(function(response){
+      console.log("*************** EventsFactory.getData() Success Callback ***************");
+      console.log("EventsFactory.results inside http.get");
+      console.log(EventsFactory.results);
+      EventsFactory.results = response.data;
+      deferred.resolve(response);
+    }, function(error){
+      console.log("*************** EventsFactory.getData() Error Callback ***************");
+    console.log(error.statusText);
+    });
+    
+    return deferred.promise;
+  }
+  
+  EventsFactory.reload = function()
+  {
+    EventsFactory.getData().then(function(response){
+      console.log("Data reloaded", response);
+      deferred.resolve(response);
+    });
+    return deferred.promise;
+  }
+  
+  EventsFactory.getData();
+  
+  
+  return EventsFactory;
   
 });
