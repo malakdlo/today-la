@@ -161,8 +161,8 @@
                               </div>-->
                             </form>
                             <div>
-                                <button class="btn btn-primary" ng-click="searchValues(foodResults); foodSearchForm = !foodSearchForm">Search</button>
-                                <button class="btn btn-primary" ng-click="foodSearchForm = !foodSearchForm">Close</button>
+                                <button class="btn btn-success" ng-click="searchValues(foodResults); foodSearchForm = !foodSearchForm">Search</button>
+                                <button class="btn btn-success" ng-click="foodSearchForm = !foodSearchForm">Close</button>
                             </div>
 
                   </div><!-- End Buttons Col -->
@@ -231,8 +231,8 @@
                         </form>
                         <!-- <button ng-repeat="button in activitiesButtons" ng-click="ActivitiesInfo = !ActivitiesInfo">{{button}}</button> -->
                         <div>
-                          <button class="btn btn-primary" ng-click="searchValues(activitiesResults); activitiesSearchForm = !activitiesSearchForm">Search</button>
-                          <button class="btn btn-primary" ng-click="activitiesSearchForm = !activitiesSearchForm">Close</button>
+                          <button class="btn btn-success" ng-click="searchValues(activitiesResults); activitiesSearchForm = !activitiesSearchForm">Search</button>
+                          <button class="btn btn-success" ng-click="activitiesSearchForm = !activitiesSearchForm">Close</button>
                         </div>
                     </div><!-- Activity Buttons End -->
                   </div><!-- End Buttons Col -->
@@ -265,7 +265,7 @@
             <div class="col-12" id="randomContainer" ng-show="status">
                 <h1 id="randomEventTitle">{{event.name}}</h1>
                 <p id="randomDetails">{{event.details}}</p>
-                <a href="{{event.link}}" id="randomLink" target="_blank">Link</a>
+                <a href="{{event.link}}" id="randomLink" target="_blank">Link to your event</a>
                 <br>
                 <button ng-click="clearRandomSearch(); status = !status" class="btn btn-primary" id="clearButton">Clear Search</button>
             </div>

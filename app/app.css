@@ -556,7 +556,7 @@ footer .mobile {
  background-color:#fff;
  box-shadow:0 38px 43px rgba(0,0,0,.09);
  width:401px;
- height:534px;
+ height:650px;
  float:left;
  padding:55px
 }
@@ -2998,4 +2998,11 @@ h1.xbootstrap {
 	opacity: 1;
 	padding: 10px 17px;
 	font-size: 27px;
+}
+
+/* Category Buttons */
+.btn-group > .btn {
+  position: relative;
+  margin: 1%;
+  float:none;
 }

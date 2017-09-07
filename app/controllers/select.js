@@ -10,15 +10,14 @@ angular.module('myApp.select', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootst
 }])
 .controller('SelectController', function($scope, EventsFactory) {
   console.log("*************** SelectController ***************");
-  /* DATA */
-  EventsFactory.getData().then(function(data){
+  /****** DATA *******/
+    EventsFactory.getData().then(function(data){
     $scope.results = EventsFactory.results;
     console.log("EventsFactory.results inside of SelectController");
     console.log(EventsFactory.results);
     console.log("$scope.results inside of SelectController");
     console.log($scope.results);
   });
-    
     $scope.filteredResults = [];
     $scope.finalData = [];
     $scope.randomEvent = [];
@@ -111,7 +110,7 @@ angular.module('myApp.select', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootst
    "Fancy"
   ];
 
-  /* MAIN FUNCTIONS */
+  /****** FUNCTIONS *******/
     // Filters
     $scope.findCatOne = function(category){
       console.log("*************** findCatOne ***************");
@@ -209,7 +208,10 @@ angular.module('myApp.select', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootst
   {
     var deferred = $q.defer();
     
-    $http.get('https://script.google.com/macros/s/AKfycbyFVpKhx9l7s0xSV--KJoa21BgfqHpCrqqjgEYdJTOnh673vZE/exec').then(function(response){
+    var remoteUrl = "https://script.google.com/macros/s/AKfycbyFVpKhx9l7s0xSV--KJoa21BgfqHpCrqqjgEYdJTOnh673vZE/exec";
+    var localData = "../events.json";
+    
+    $http.get(localData).then(function(response){
       console.log("*************** EventsFactory.getData() Success Callback ***************");
       console.log("EventsFactory.results inside http.get");
       console.log(EventsFactory.results);

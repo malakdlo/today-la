@@ -9,58 +9,84 @@ angular.module('myApp.random', ['ngRoute'])
   });
 }])
 
-.controller('RandomCtrl', function($scope, RandomFactory){
-  $scope.searchRandom = RandomFactory.searchRandom;
-  $scope.clearRandomSearch = RandomFactory.clearRandomSearch;
-  $scope.event = RandomFactory.event;
-})
-.factory('RandomFactory', function(EventsFactory){
-  console.log("*************** RandomFactory ***************")
-  var RandomFactory = this;
+.controller('RandomCtrl', function($scope, EventsFactory){
   
-  /****** DATA *******/
   EventsFactory.getData().then(function(data){
-    RandomFactory.results = EventsFactory.results;
-    console.log("EventsFactory.results inside of RandomFactory");
+    $scope.results = EventsFactory.results;
+    console.log("EventsFactory.results inside of $scope");
     console.log(EventsFactory.results);
-    console.log("RandomFactory.results inside of RandomFactory");
-    console.log(RandomFactory.results);
+    console.log("$scope.results inside of $scope");
+    console.log($scope.results);
   });
-  RandomFactory.event = {};
+  $scope.event = {};
   
-  
-  /****** FUNCTIONS *******/
-  
-  /** SEARCH RANDOM **/
-  RandomFactory.searchRandom = function(){
-    if(RandomFactory.results){
-      console.log("Able to read RandomFactory.results")
-      var randomNum = RandomFactory.getRandomInt(0, RandomFactory.results.length);
+  $scope.searchRandom = function(){
+    if($scope.results){
+      console.log("Able to read $scope.results")
+      var randomNum = $scope.getRandomInt(0, $scope.results.length);
       console.log("Will search for event number: " , randomNum);
-      RandomFactory.event.link = RandomFactory.results[randomNum].link;
-      RandomFactory.event.name = RandomFactory.results[randomNum].name;
-      RandomFactory.event.details = RandomFactory.results[randomNum].details;
-      
-//      document.getElementById('randomEventTitle').innerHTML = randomEventTitle;
-//      document.getElementById('randomDetails').innerHTML = randomEventDetails;
-//      document.getElementById('randomLink').innerHTML = "Click Here for Your Random Event";
-//      document.getElementById('randomLink').setAttribute('href', randomEventLink);
+      $scope.event.link = $scope.results[randomNum].link;
+      $scope.event.name = $scope.results[randomNum].name;
+      $scope.event.details = $scope.results[randomNum].details;
+      console.log("Event Object");
+      console.log($scope.event);
     }else{
       console.log("searchRandom function cannot access results array");
     } 
   }
   
-  RandomFactory.clearRandomSearch = function(){
-    document.getElementById('randomEventTitle').innerHTML = '';
-    document.getElementById('randomDetails').innerHTML = '';
-    document.getElementById('randomLink').innerHTML = '';
+  $scope.clearRandomSearch = function(){
+    $scope.event = {};
+    console.log("Reset $scope.event");
+    console.log($scope.event);
   }
   
-  /* HELPER FUNCTIONS */
-  RandomFactory.getRandomInt = function(min, max){
+  $scope.getRandomInt = function(min, max){
     var min = Math.ceil(min), max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);
   }
   
-  return RandomFactory;
 });
+/*
+.factory('$scope', function(EventsFactory){
+  console.log("*************** $scope ***************")
+  var $scope = this;
+  
+  EventsFactory.getData().then(function(data){
+    $scope.results = EventsFactory.results;
+    console.log("EventsFactory.results inside of $scope");
+    console.log(EventsFactory.results);
+    console.log("$scope.results inside of $scope");
+    console.log($scope.results);
+  });
+  $scope.event = {};
+  
+  $scope.searchRandom = function(){
+    if($scope.results){
+      console.log("Able to read $scope.results")
+      var randomNum = $scope.getRandomInt(0, $scope.results.length);
+      console.log("Will search for event number: " , randomNum);
+      $scope.event.link = $scope.results[randomNum].link;
+      $scope.event.name = $scope.results[randomNum].name;
+      $scope.event.details = $scope.results[randomNum].details;
+      console.log("Event Object");
+      console.log($scope.event);
+    }else{
+      console.log("searchRandom function cannot access results array");
+    } 
+  }
+  
+  $scope.clearRandomSearch = function(){
+    $scope.event = {};
+    console.log("Reset $scope.event");
+    console.log($scope.event);
+  }
+  
+  $scope.getRandomInt = function(min, max){
+    var min = Math.ceil(min), max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
+  }
+  
+  return $scope;
+});
+*/
