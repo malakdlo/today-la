@@ -209,7 +209,7 @@ angular.module('myApp.select', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootst
     var deferred = $q.defer();
     
     var remoteUrl = "https://script.google.com/macros/s/AKfycbyFVpKhx9l7s0xSV--KJoa21BgfqHpCrqqjgEYdJTOnh673vZE/exec";
-    var localData = "../events.json";
+    var localData = "events.json";
     
     $http.get(localData).then(function(response){
       console.log("*************** EventsFactory.getData() Success Callback ***************");
