@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.random', ['ngRoute'])
+angular.module('myApp.random', ['ngRoute', 'ngAnimate'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/randomsearch', {

@@ -3005,9 +3005,70 @@ h1.xbootstrap {
 	font-size: 27px;
 }
 
-/* Category Buttons */
-.btn-group > .btn {
+
+/********************** CATEGORY BUTTONS ***********************/
+/* Food Category Buttons */
+.btn-group > .btn-primary.food-categories {
+  background-color: #f58b24;
+  border-color: #33afff;
   position: relative;
   margin: 1%;
   float:none;
+  transition-duration: 0.4s;
 }
+
+.btn-group > .btn-primary.food-categories:hover {
+  background-color: #fecc90;
+  color: #33afff;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.btn-group > .btn-primary.food-categories.active {
+  background-color: white;
+  color: #f58b24;
+}
+
+/* Activity Category Buttons */
+.btn-group > .btn-primary.activity-categories {
+  background-color: #0f6fa9;
+  border-color: #33afff;
+  position: relative;
+  margin: 1%;
+  float:none;
+  transition-duration: 0.4s;
+}
+
+.btn-group > .btn-primary.activity-categories:hover {
+  background-color: #1ba2f4;
+  color: #fff;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.btn-group > .btn-primary.activity-categories.active {
+  background-color: white;
+  color: #1ba2f4;
+}
+
+/********************** SEARCH BUTTONS ***********************/
+/* Search Buttons */
+.cta.search {
+ display:inline-block;
+ padding:8px 15px;
+ border-radius:30px;
+ color:#000;
+ text-decoration:none;
+ font-size:18px;
+ z-index:30;
+ font-family:CircularStd-Book,sans-serif!important;
+ position:relative;
+  background-color: #1ba2f4;
+  color: white;
+  transition-duration: 0.4s;
+}
+
+.cta.search:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+
