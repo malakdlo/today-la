@@ -707,6 +707,9 @@ footer .mobile {
  display:inline-block;
  position:relative
 }
+
+/* Deleted "|" */
+/*
 .home .centeredContainer .catchZone #intro #last:after {
  content:"|";
  position:absolute;
@@ -722,6 +725,8 @@ footer .mobile {
  -webkit-animation-delay:1.2s;
  animation-delay:1.2s
 }
+*/
+
 .home .centeredContainer .catchZone #intro span {
  font-weight:700;
  display:inline-block;
