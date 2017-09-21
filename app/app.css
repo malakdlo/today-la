@@ -1,4 +1,21 @@
-/**** ANGULAR SEED APP CSS *****/
+/************ SEARCH INDEX *************/
+
+/* CONTACT PAGE */
+/* 
+-- CP-COLORS
+-- CP-TITLE
+-- CP-SUBTITLE
+-- CP-CONTACTBOX
+*/
+
+/* COLORS */
+/*
+DARK ORANGE - #f58b24
+PALE - #fecc90
+DARK BLUE - #0f6fa9
+LIGHT BLUE - #1ba2f4
+DARK BROWN - #aa6116
+*/
 
 .menu {
   list-style: none;
@@ -1503,8 +1520,8 @@ footer .mobile {
  padding:0 30px;
  background-color:#fff;
  box-shadow:0 38px 43px rgba(0,0,0,.09);
- -webkit-transform:translate3d(0,30px,0);
- transform:translate3d(0,30px,0);
+ -webkit-transform: translate3d(0px, 0px, 0px)
+ transform: translate3d(0px, 0px, 0px)
  opacity:0
 }
 .features .sectionServicesWrapper section div:nth-child(2) .serviceBlock span {
@@ -1903,7 +1920,7 @@ footer .mobile {
  display:inline-block;
  opacity:0;
  margin-bottom:7px;
- -webkit-transform:translate3d(0,30px,0);
+ -webkit-transform: translate3d(0px, 0px, 0px)
  transform:translate3d(0,30px,0)
 }
 .pricing .pageContent {
@@ -2146,8 +2163,8 @@ footer .mobile {
  margin:37px auto 0
 }
 .signIn .pageContent form input {
- -webkit-transform:translate3d(0,30px,0);
- transform:translate3d(0,30px,0);
+ -webkit-transform: translate3d(0px, 0px, 0px)
+ transform: translate3d(0px, 0px, 0px)
  opacity:0
 }
 .signIn .pageContent .actionsWrapper {
@@ -2351,8 +2368,8 @@ footer .mobile {
  margin-top:10px;
  font-size:22px;
  color:rgba(0,0,0,.3);
- -webkit-transform:translate3d(0,30px,0);
- transform:translate3d(0,30px,0);
+ -webkit-transform: translate3d(0px, 0px, 0px)
+ transform: translate3d(0px, 0px, 0px)
  opacity:0
 }
 .subscribe .footerWrapper {
@@ -2516,8 +2533,8 @@ footer .mobile {
  margin-top:10px;
  font-size:30px;
  color:rgba(0,0,0,.3);
- -webkit-transform:translate3d(0,30px,0);
- transform:translate3d(0,30px,0);
+ -webkit-transform: translate3d(0px, 0px, 0px)
+ transform: translate3d(0px, 0px, 0px)
  opacity:0
 }
 .qAndA .contentWrapper {
@@ -2572,6 +2589,8 @@ footer .mobile {
   margin-top:50px
  }
 }
+
+/* CONTACT PAGE */
 .contact .pageContent,.contact .pageHeader {
  max-width:1200px;
  display:-webkit-flex;
@@ -2595,37 +2614,58 @@ footer .mobile {
  text-align:center;
  margin-left:10px
 }
+
+/* Appear from bottom effect */
+/*
+FROM
+-webkit-transform:translate3d(0,240px,0);
+transform:translate3d(0,240px,0);
+opacity:0;
+
+TO
+style="opacity: 1; transform: translate3d(0px, 0px, 0px);" 
+*/
 .contact .pageContent .headerTitle span {
  font-size:300px;
  font-weight:700;
  display:inline-block;
- opacity:0;
- -webkit-transform:translate3d(0,240px,0);
- transform:translate3d(0,240px,0);
+  transform: translate3d(0px, 0px, 0px);
  margin-left:-4px
 }
+
+
+/* CP-COLORS */
+
+/* CP-TITLE */
 .contact .pageContent .headerTitle span:nth-child(1) {
- color:#dc6b6b
+ color:#f58b24 
 }
 .contact .pageContent .headerTitle span:nth-child(2) {
- color:#65c3ad;
+ color:#0f6fa9;
  margin-left:-25px
 }
 .contact .pageContent .headerTitle span:nth-child(3) {
- color:#e8c060
+ color:#1ba2f4
 }
 .contact .pageContent .headerTitle span:nth-child(4) {
- color:#ea9078
+ color:#aa6116
 }
+.contact .pageContent .headerTitle span:nth-child(5) {
+ color:#fecc90
+}
+
+/* CP-SUBTITLE */
 .contact .pageContent h4.headerSubtitle {
  text-align:center;
  margin-top:10px;
  font-size:30px;
  color:rgba(0,0,0,.3);
- -webkit-transform:translate3d(0,30px,0);
- transform:translate3d(0,30px,0);
- opacity:0
+ -webkit-transform: translate3d(0px, 0px, 0px)
+ transform: translate3d(0px, 0px, 0px)
+ opacity:1
 }
+
+/* CP-CONTACTBOX*/
 .contact .contactBox {
  background-color:#fff;
  opacity:0;

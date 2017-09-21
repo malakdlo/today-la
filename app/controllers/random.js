@@ -1,14 +1,6 @@
 'use strict';
 
-angular.module('myApp.random', ['ngRoute', 'ngAnimate'])
-
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/randomsearch', {
-    templateUrl: 'randomView/random.html',
-    controller: 'RandomCtrl'
-  });
-}])
-
+angular.module('myApp')
 .controller('RandomCtrl', function($scope, EventsFactory){
   
   EventsFactory.getData().then(function(data){
@@ -47,6 +39,8 @@ angular.module('myApp.random', ['ngRoute', 'ngAnimate'])
   }
   
 });
+
+/* Factory */
 /*
 .factory('$scope', function(EventsFactory){
   console.log("*************** $scope ***************")
@@ -90,3 +84,4 @@ angular.module('myApp.random', ['ngRoute', 'ngAnimate'])
   return $scope;
 });
 */
+

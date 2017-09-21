@@ -1,13 +1,7 @@
 'use strict';
 
-angular.module('myApp.select', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootstrap'])
+angular.module('myApp')
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/select', {
-    templateUrl: 'selectView/select.html',
-    controller: 'SelectController'
-  });
-}])
 .controller('SelectController', function($scope, EventsFactory) {
   console.log("*************** SelectController ***************");
   /****** DATA *******/
@@ -200,6 +194,7 @@ angular.module('myApp.select', ['ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootst
     }
   
 })
+
 .factory('EventsFactory', function($http, $q){
   console.log("*************** EventsFactory ***************");
   var EventsFactory = this;

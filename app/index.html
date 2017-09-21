@@ -18,20 +18,13 @@
   
 </head>
 <body class="home">
-  <!--<ul class="menu">
-    <li><a href="#!/view4">Home</a></li>
-    <li><a href="#!/select">Select</a></li>
-    <li><a href="#!/getstarted">Two Filters Example</a></li>
-    <li><a href="#!/randomsearch">Random Example</a></li>
-  </ul>-->
 
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
+  <navbar></navbar>
 
   <div ng-view></div>
-
-
+  
+  <footercomponent></footercomponent>
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js"></script>
@@ -43,10 +36,11 @@
 
   
   <script src="app.js"></script>
+  <script src="components/navbar/navbar.js"></script>
+  <script src="components/footer/footer.js"></script>
   <script src="controllers/random.js"></script>
   <script src="controllers/select.js"></script>
   <script src="events.json"></script>
-  <script src="home/home.js"></script>
   
 <!--
 <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
