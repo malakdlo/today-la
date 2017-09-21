@@ -11,26 +11,33 @@ angular.module('myApp')
     console.log(EventsFactory.results);
     console.log("$scope.results inside of SelectController");
     console.log($scope.results);
-  });
+    });
     $scope.filteredResults = [];
     $scope.finalData = [];
     $scope.randomEvent = [];
     $scope.selectedCategory;
-
+    
     // Food Model
-    $scope.foodModel = { 
-      Casual: false, 
-      Breakfast: false, 
-      Brunch: false, 
-      Lunch: false, 
-      Dinner: false, 
-      Dessert: false, 
-      Romantic: false, 
-      FoodTruck: false, 
-      FastFood: false, 
-      Inexpensive: false, 
-      Fancy: false 
-    };
+    $scope.foodSubCategories = [
+    "Casual",
+    "Breakfast",
+    "Brunch",
+    "Lunch",
+    "Dinner",
+    "Dessert",
+    "Romantic",
+    "FoodTruck",
+    "FastFood",
+    "Inexpensive",
+    "Fancy",
+    "Nightlife",
+    "Vegan",
+    "Boozy"
+    ];
+    $scope.foodModel = {};
+    $scope.foodSubCategories.forEach(function(item){
+      $scope.foodModel[item] = false;
+    });
     $scope.foodResults = [];
     $scope.$watchCollection('foodModel', function(){
         console.log("*************** Food Results Watcher ***************")
@@ -47,20 +54,41 @@ angular.module('myApp')
         console.log($scope.filteredResults)
         // End Test
       });// End Watcher
-
-    // Activities Model
-    $scope.activitiesModel = { 
-      Athletic: false, 
-      Nature: false, 
-      Relaxing: false, 
-      Romantic : false, 
-      Games: false, 
-      Cultural: false, 
-      Artsy: false, 
-      Beauty: false, 
-      Inexpensive: false, 
-      Fancy: false 
+    /* Create Food Buttons */
+    /*
+    $scope.htmlToElement = function(html){
+        var template = document.createElement('template');
+        template.innerHTML = html;
+        return template.content.firstChild;
     };
+    for(var i = 0; i < $scope.foodSubCategories.length; i++){
+        var foodDiv = document.getElementById("foodButtons");
+        var subCat = $scope.foodSubCategories[i];
+        var buttonElem = $scope.htmlToElement('<button class="btn btn-primary food-categories" ng-model="foodModel.' + subCat + '" uib-btn-checkbox>' + subCat +'</button>');
+        foodDiv.append(buttonElem);
+      };
+    */
+  
+    // Activities Model
+    $scope.activitiesSubCategories = [
+    "Athletic",
+    "Nature",
+    "Relaxing",
+    "Romantic ",
+    "Games",
+    "Cultural",
+    "Artsy",
+    "Beauty",
+    "Inexpensive",
+    "Fancy",
+    "Educational",
+    "Shopping",
+    "Nightlife"
+    ];
+    $scope.activitiesModel = {};
+    $scope.activitiesSubCategories.forEach(function(item){
+      $scope.activitiesModel[item] = false;
+    });
     $scope.activitiesResults = [];
     $scope.$watchCollection('activitiesModel', function(){
         $scope.activitiesResults = [];
@@ -77,52 +105,28 @@ angular.module('myApp')
         // End Test
       });// End Watcher
 
-    // Buttons
-    $scope.activitiesButtons = [
-    "Sporty/Athletic",
-    "Nature",
-    "Relaxing",
-    "Romantic ",
-    "Games",
-    "Historical/Culture/Informative",
-    "Artsy",
-    "Beauty",
-    "Inexpensive",
-    "Fancy"
-  ];
-    $scope.foodButtons = [
-    "Casual",
-   "Breakfast",
-   "Brunch",
-   "Lunch",
-   "Dinner",
-   "Dessert",
-   "Romantic",
-   "Food Truck",
-   "Fast Food",
-   "Inexpensive",
-   "Fancy"
-  ];
 
   /****** FUNCTIONS *******/
     // Filters
     $scope.findCatOne = function(category){
       console.log("*************** findCatOne ***************");
-      console.log("Value of passed in category");
-      console.log(category);
+      
       $scope.selectedCategory = category;
+      
     /************* Filter for objects that have "category 1" == category  *************/
        $scope.filteredResults = $scope.results.filter(function(arr){
         // console.log("Value of arr inside of filter")
         // console.log(arr)
         return arr["category1"] === category;
       });// end filter
-      // TEST
-      // Origional length of the events array and resulting eventsFilteredArr length.
+      
+      // TEST: Origional length of the events array and resulting eventsFilteredArr length.
+      /*
       console.log("Total Num of events: ", $scope.results.length);
       console.log("Total Num of events after filter: ", $scope.filteredResults.length);
       console.log($scope.filteredResults);
-      // END TEST
+      */
+      
       return $scope.filteredResults;
     }// End findCatOne
     $scope.searchValues = function(catArr){
@@ -148,7 +152,8 @@ angular.module('myApp')
       // Randomly select event from finalData array
       var randomNum = $scope.getRandomInt(0, $scope.finalData.length);
       $scope.randomEvent.push($scope.finalData[randomNum]);
-
+      console.log("Category 2 of Event");
+      console.log($scope.finalData[randomNum].category2);
       return $scope.randomEvent;  
     } // End searchValues function
     $scope.clearSearch = function(){
@@ -191,8 +196,7 @@ angular.module('myApp')
     $scope.getRandomInt = function(min, max){
       var min = Math.ceil(min), max = Math.floor(max);
       return Math.floor(Math.random() * (max - min) + min);
-    }
-  
+    };
 })
 
 .factory('EventsFactory', function($http, $q){
@@ -204,13 +208,14 @@ angular.module('myApp')
     var deferred = $q.defer();
     
     var remoteUrl = "https://script.google.com/macros/s/AKfycbyFVpKhx9l7s0xSV--KJoa21BgfqHpCrqqjgEYdJTOnh673vZE/exec";
+    
     var localData = "events.json";
     
-    $http.get(localData).then(function(response){
+    $http.get(remoteUrl).then(function(response){
       console.log("*************** EventsFactory.getData() Success Callback ***************");
       console.log("EventsFactory.results inside http.get");
-      console.log(EventsFactory.results);
       EventsFactory.results = response.data;
+      console.log(EventsFactory.results);
       deferred.resolve(response);
     }, function(error){
       console.log("*************** EventsFactory.getData() Error Callback ***************");
@@ -228,8 +233,6 @@ angular.module('myApp')
     });
     return deferred.promise;
   }
-  
-  EventsFactory.getData();
   
   
   return EventsFactory;

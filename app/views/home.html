@@ -40,6 +40,9 @@
   <!-- ACTIVITIES AND FOOD SECTION -->
   <section class="blocks" ng-controller="SelectController">
     <div class="pageWrapper blocksWrapper">
+      
+      
+      
           <!-------------- FOOD SECTION ----------------->
           <section class="block" style="opacity: 1; transform-origin: center center 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
               <h3 class="block--title">
@@ -56,7 +59,7 @@
                 <!-- BUTTONS -->
                 <div class="row text-center" id="buttons" style="margin-top: 3%">
                   <div class="col-md-12">
-                    <button class="cta cta-colored cta-blue" ng-model="foodSearchForm" ng-init="foodSearchForm=false" ng-click="findCatOne('Food'); foodSearchForm = !foodSearchForm" class="btn btn-primary">Find Food Spots</button>
+                    <button class="cta cta-colored cta-blue" ng-model="foodSearchForm" ng-init="foodSearchForm=false" ng-click="findCatOne('Food'); foodSearchForm = !foodSearchForm" class="btn btn-primary" ng-show="results">Find Food Spots</button>
                   </div>
                 </div>
                 <!-- CONTENT LINKS AND INFO -->
@@ -65,6 +68,7 @@
                     <p>{{randomEvent[0].name}}</p>
                     <p>{{randomEvent[0].details}}</p>
                     <a href="{{randomEvent[0].link}}" target="_blank">Link</a>
+                    
                   </div>
                   <div class="col-md-12 text-center" id="options">
                     <button ng-click="clearSearch()" class="btn btn-primary">Clear Search</button>
@@ -72,63 +76,50 @@
                 </div>
               </div><!-- End Title, Search Buttons -->
             
-          <!-- FOOD SUB CATEGORY BUTTONS -->
-          <div class="row text-center" ng-show="foodSearchForm">
-              <div>
-                    <button type="button" class="close" ng-click="foodSearchForm = !foodSearchForm">×</button>
-                    <div id="catTwoButtons">
-                          <!-- Food Buttons Start -->
-                            <form novalidate>
-                              <div class="btn-group">
-                                
-                                  <button class="btn btn-primary food-categories" ng-model="foodModel.Casual" uib-btn-checkbox>Casual</button>
-                                  <button class="btn btn-primary food-categories" ng-model="foodModel.Breakfast" uib-btn-checkbox>Breakfast</button>
-                                  <button class="btn btn-primary food-categories" ng-model="foodModel.Brunch" uib-btn-checkbox>Brunch</button>
+            <!-- FOOD SUB CATEGORY BUTTONS -->
+            <div class="row text-center" ng-show="foodSearchForm">
+                <div>
+                      <button type="button" class="close" ng-click="foodSearchForm = !foodSearchForm">×</button>
+                      <div id="catTwoButtons">
+                            <!-- Food Buttons Start -->
+                              <form novalidate>
+                                <div class="btn-group" id="foodButtons">
+                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Casual" uib-btn-checkbox>Casual</button>
+                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Breakfast" uib-btn-checkbox>Breakfast</button>
+                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Brunch" uib-btn-checkbox>Brunch</button>
 
-                                
-                                  <button class="btn btn-primary food-categories" ng-model="foodModel.Lunch" uib-btn-checkbox>Lunch</button>
-                                  <button class="btn btn-primary food-categories" ng-model="foodModel.Dinner" uib-btn-checkbox>Dinner</button>
-                                  <button class="btn btn-primary food-categories" ng-model="foodModel.Dessert" uib-btn-checkbox>Dessert</button>
 
-                                
-                                  <button class="btn btn-primary food-categories" ng-model="foodModel.Romantic" uib-btn-checkbox>Romantic</button>
-                                  <button class="btn btn-primary food-categories" ng-model="foodModel.FoodTruck" uib-btn-checkbox>Food Truck</button>
-                                  <button class="btn btn-primary food-categories" ng-model="foodModel.FastFood" uib-btn-checkbox>Fast Food</button>  
+                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Lunch" uib-btn-checkbox>Lunch</button>
+                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Dinner" uib-btn-checkbox>Dinner</button>
+                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Dessert" uib-btn-checkbox>Dessert</button>
 
-                                
-                                  <button class="btn btn-primary food-categories" ng-model="foodModel.Inexpensive" uib-btn-checkbox>Inexpensive</button>
-                                  <button class="btn btn-primary food-categories" ng-model="foodModel.Fancy" uib-btn-checkbox>Fancy</button>  
-                                  <button class="btn btn-primary food-categories" ng-model="foodModel.Fancy" uib-btn-checkbox>Fancy</button>  
 
+                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Romantic" uib-btn-checkbox>Romantic</button>
+                                    <button class="btn btn-primary food-categories" ng-model="foodModel.FoodTruck" uib-btn-checkbox>Food Truck</button>
+                                    <button class="btn btn-primary food-categories" ng-model="foodModel.FastFood" uib-btn-checkbox>Fast Food</button>  
+
+
+                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Inexpensive" uib-btn-checkbox>Inexpensive</button>
+                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Fancy" uib-btn-checkbox>Fancy</button>  
+                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Nightlife" uib-btn-checkbox>Nightlife</button>  
+
+                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Vegan" uib-btn-checkbox>Vegan</button>
+                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Boozy" uib-btn-checkbox>Boozy</button>
+                                </div>
+                              </form>
+                              <div>
+                                  <button class="cta search" ng-click="searchValues(foodResults); foodSearchForm = !foodSearchForm">Search</button>
+                                  <button class="cta search" ng-click="foodSearchForm = !foodSearchForm">Close</button>
                               </div>
-                              <!-- Test Data -->
-                              <!--<div>
-                                <p>Food Results</p>
-                                <pre>
-                                  {{foodResults}}
-                                </pre>
-                                <p>Final Data</p>
-                                <pre>
-                                  {{finalData.length}}
-                                </pre>
-                                <p>Event</p>
-                                <pre>
-                                  {{randomEvent[0].name}}
-                                  {{randomEvent[0].details}}
-                                  {{randomEvent[0].link}}
-                                </pre>
-                              </div>-->
-                            </form>
-                            <div>
-                                <button class="cta search" ng-click="searchValues(foodResults); foodSearchForm = !foodSearchForm">Search</button>
-                                <button class="cta search" ng-click="foodSearchForm = !foodSearchForm">Close</button>
-                            </div>
 
-                  </div><!-- End Buttons Col -->
-            </div>
-          </div><!-- END FOOD SUB CATEGORY BUTTONS -->
+                    </div><!-- End Buttons Col -->
+              </div>
+            </div><!-- END FOOD SUB CATEGORY BUTTONS -->
           </section><!-- END FOOD SECTION -->
         
+      
+      
+      
           <!-------------- ACTIVITIES SECTION ----------------->
           <section class="block" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0); transform-origin: center center 0px;">
               <h3 class="block--title">
@@ -145,7 +136,7 @@
                 <!-- BUTTONS -->
                 <div class="row text-center" id="buttons" style="margin-top: 3%">
                   <div class="col-md-12">
-                    <button ng-model="activitiesSearchForm" ng-init="activitiesSearchForm=false" ng-click="findCatOne('Activities'); activitiesSearchForm = !activitiesSearchForm" class="cta cta-colored cta-blue">Find Activities</button>
+                    <button ng-model="activitiesSearchForm" ng-init="activitiesSearchForm=false" ng-click="findCatOne('Activities'); activitiesSearchForm = !activitiesSearchForm" class="cta cta-colored cta-blue" ng-show="results">Find Activities</button>
                   </div>
                 </div>
                 <!-- CONTENT LINKS AND INFO -->
@@ -186,6 +177,9 @@
                             <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Beauty" uib-btn-checkbox>Beauty</label>
                             <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Inexpensive" uib-btn-checkbox>Inexpensive</label>
                             <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Fancy" uib-btn-checkbox>Fancy</label>
+                            <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Educational" uib-btn-checkbox>Educational</label>
+                            <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Shopping" uib-btn-checkbox>Shopping</label>
+                            <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Nightlife" uib-btn-checkbox>Nightlife</label>
                           </div>
                         </form>
                         <!-- <button ng-repeat="button in activitiesButtons" ng-click="ActivitiesInfo = !ActivitiesInfo">{{button}}</button> -->
@@ -199,6 +193,9 @@
 
               </div><!-- End Hidden Search Form -->
           </section><!-- END ACTIVITY SECTION -->
+      
+      
+      
       
       </div><!-- page and block wrapper end --> 
     
@@ -215,7 +212,7 @@
           
           <!-- BUTTON -->
           <div class="catchCta">
-              <button ng-model="status" ng-init="status=false" ng-click="searchRandom(); status = !status;" href="#random" id="randomButton" class="cta cta-colored cta-blue cta-visible cta-width-strict cta--invite cta--signup">Find a Random Event</button>
+              <button ng-model="status" ng-init="status=false" ng-click="searchRandom(); status = !status;" href="#random" id="randomButton" class="cta cta-colored cta-blue cta-visible cta-width-strict cta--invite cta--signup" ng-show="results">Find a Random Event</button>
           </div>
         
           <!-- CONTENT LINKS AND INFO -->

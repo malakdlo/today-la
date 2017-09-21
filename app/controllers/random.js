@@ -5,9 +5,9 @@ angular.module('myApp')
   
   EventsFactory.getData().then(function(data){
     $scope.results = EventsFactory.results;
-    console.log("EventsFactory.results inside of $scope");
+    console.log("EventsFactory.results inside of RandomCtrl");
     console.log(EventsFactory.results);
-    console.log("$scope.results inside of $scope");
+    console.log("$scope.results inside of RandomCtrl");
     console.log($scope.results);
   });
   $scope.event = {};
@@ -20,8 +20,10 @@ angular.module('myApp')
       $scope.event.link = $scope.results[randomNum].link;
       $scope.event.name = $scope.results[randomNum].name;
       $scope.event.details = $scope.results[randomNum].details;
+      $scope.event.category2 = $scope.results[randomNum].category2;
       console.log("Event Object");
       console.log($scope.event);
+      console.log($scope.event.category2)
     }else{
       console.log("searchRandom function cannot access results array");
     } 
