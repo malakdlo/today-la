@@ -13,7 +13,7 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
   $locationProvider.hashPrefix('!');
   
   // Home
-  $routeProvider.when('/home', {
+  $routeProvider.when('/', {
     templateUrl: 'views/home.html'
   });
   
@@ -22,5 +22,5 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
     templateUrl: 'views/contact.html',
   });
   
-  $routeProvider.otherwise({redirectTo: '/home'});
+  $routeProvider.otherwise({redirectTo: '/'});
 }]);

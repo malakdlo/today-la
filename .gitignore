@@ -8,3 +8,4 @@ tmp
 appsScript-test.js
 delete/
 localScripts.md
+package-lock.json

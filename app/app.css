@@ -2607,7 +2607,7 @@ footer .mobile {
 .contact .pageContent .centeredContainer {
  width:100%;
  max-width:1200px;
- margin-bottom:125px;
+ margin-bottom:75px;
  margin-top:100px
 }
 .contact .pageContent .headerTitle {
@@ -2657,7 +2657,7 @@ style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
 /* CP-SUBTITLE */
 .contact .pageContent h4.headerSubtitle {
  text-align:center;
- margin-top:10px;
+ margin-top:25px;
  font-size:30px;
  color:rgba(0,0,0,.3);
  -webkit-transform: translate3d(0px, 0px, 0px)
@@ -2732,14 +2732,16 @@ style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
  }
  .contact .pageContent .headerTitle span {
   font-size:80px;
-  margin-left:-2px
+  margin-left:-2px;
+  margin-bottom: 5px;
  }
  .contact .pageContent .headerTitle span:nth-child(2) {
   margin-left:-12px
  }
  .contact .pageContent h4.headerSubtitle {
-  margin-top:20px;
-  font-size:17px
+  margin-top:25px;
+  font-size:17px;
+  margin-left:20px;
  }
  .contact .contactBox {
   position:relative;

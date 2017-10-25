@@ -1,231 +1,296 @@
-<!-- BODY CONTAINER -->
-<div class="page home">
-  
-  <!-- HEADER SECTION - INTRO -->
-  <div class="pageWrapper">
-      <div class="centeredContainer">
-        <!--TODAY-->  
-        <div class="catchZone">
-              <div class="hello">
-                  <span id="intro">
-                      <span class="coolBlue" style="opacity: 1; transform: translate3d(0px, 0px, 0px);">T</span>
-                      <span style="opacity: 1; transform: translate3d(0px, 0px, 0px);">o</span>
-                      <span style="opacity: 1; transform: translate3d(0px, 0px, 0px);">d</span>
-                      <span style="opacity: 1; transform: translate3d(0px, 0px, 0px);">a</span>
-                      <span style="opacity: 1; transform: translate3d(0px, 0px, 0px);">y</span>
-                  </span>
-              </div>
-          </div>
-        <!--LA-->
+  <!-- BODY CONTAINER -->
+  <div class="page home">
+
+    <!-- HEADER SECTION - INTRO -->
+    <div class="pageWrapper">
+        <div class="centeredContainer">
+          <!--TODAY-->  
           <div class="catchZone">
-              <div class="hello">
-                  <span id="intro">
-                      <span style="opacity: 1; transform: translate3d(0px, 0px, 0px); color:#0f6fa9;">L</span>
-                      <span id="last" style="opacity: 1; transform: translate3d(0px, 0px, 0px); color:#1ba2f4;">A</span>
-                  </span>
-              </div>
-          </div>
-        <!--Find Something To Do Fast -->
-          <div class="catchPhrase">
-              <p>
-                  <span style="opacity: 1; transform-origin: center center 0px; transform: matrix(1, 0, 0, 1, 0, 0);">Find something to do</span>
-      <span style="opacity: 1; transform-origin: center center 0px; transform: matrix(1, 0, 0, 1, 0, 0);">fast.</span>
-              </p>
-        </div>
-          <div class="catchCta">
-          </div>
-      </div>
-  </div>
-
-  <!-- ACTIVITIES AND FOOD SECTION -->
-  <section class="blocks" ng-controller="SelectController">
-    <div class="pageWrapper blocksWrapper">
-      
-      
-      
-          <!-------------- FOOD SECTION ----------------->
-          <section class="block" style="opacity: 1; transform-origin: center center 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
-              <h3 class="block--title">
-                  Food
-              </h3>
-              <span class="block--catch">
-                  Search for food spots across L.A.
-              </span>
-              <div class="block--text">
-              </div>
-            
-              <!-- Title, Search Buttons -->
-              <div>
-                <!-- BUTTONS -->
-                <div class="row text-center" id="buttons" style="margin-top: 3%">
-                  <div class="col-md-12">
-                    <button class="cta cta-colored cta-blue" ng-model="foodSearchForm" ng-init="foodSearchForm=false" ng-click="findCatOne('Food'); foodSearchForm = !foodSearchForm" class="btn btn-primary" ng-show="results">Find Food Spots</button>
-                  </div>
+                <div class="hello">
+                    <span id="intro">
+                        <span class="coolBlue" style="opacity: 1; transform: translate3d(0px, 0px, 0px);">T</span>
+                        <span style="opacity: 1; transform: translate3d(0px, 0px, 0px);">o</span>
+                        <span style="opacity: 1; transform: translate3d(0px, 0px, 0px);">d</span>
+                        <span style="opacity: 1; transform: translate3d(0px, 0px, 0px);">a</span>
+                        <span style="opacity: 1; transform: translate3d(0px, 0px, 0px);">y</span>
+                    </span>
                 </div>
-                <!-- CONTENT LINKS AND INFO -->
-                <div class="row text-center" id="content" style="margin-top: 2%;" ng-if="randomEvent.length > 0 && selectedCategory === 'Food'">
-                  <div class="col-12" id="results">
-                    <p>{{randomEvent[0].name}}</p>
-                    <p>{{randomEvent[0].details}}</p>
-                    <a href="{{randomEvent[0].link}}" target="_blank">Link</a>
-                    
-                  </div>
-                  <div class="col-md-12 text-center" id="options">
-                    <button ng-click="clearSearch()" class="btn btn-primary">Clear Search</button>
-                  </div>
-                </div>
-              </div><!-- End Title, Search Buttons -->
-            
-            <!-- FOOD SUB CATEGORY BUTTONS -->
-            <div class="row text-center" ng-show="foodSearchForm">
-                <div>
-                      <button type="button" class="close" ng-click="foodSearchForm = !foodSearchForm">×</button>
-                      <div id="catTwoButtons">
-                            <!-- Food Buttons Start -->
-                              <form novalidate>
-                                <div class="btn-group" id="foodButtons">
-                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Casual" uib-btn-checkbox>Casual</button>
-                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Breakfast" uib-btn-checkbox>Breakfast</button>
-                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Brunch" uib-btn-checkbox>Brunch</button>
-
-
-                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Lunch" uib-btn-checkbox>Lunch</button>
-                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Dinner" uib-btn-checkbox>Dinner</button>
-                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Dessert" uib-btn-checkbox>Dessert</button>
-
-
-                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Romantic" uib-btn-checkbox>Romantic</button>
-                                    <button class="btn btn-primary food-categories" ng-model="foodModel.FoodTruck" uib-btn-checkbox>Food Truck</button>
-                                    <button class="btn btn-primary food-categories" ng-model="foodModel.FastFood" uib-btn-checkbox>Fast Food</button>  
-
-
-                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Inexpensive" uib-btn-checkbox>Inexpensive</button>
-                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Fancy" uib-btn-checkbox>Fancy</button>  
-                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Nightlife" uib-btn-checkbox>Nightlife</button>  
-
-                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Vegan" uib-btn-checkbox>Vegan</button>
-                                    <button class="btn btn-primary food-categories" ng-model="foodModel.Boozy" uib-btn-checkbox>Boozy</button>
-                                </div>
-                              </form>
-                              <div>
-                                  <button class="cta search" ng-click="searchValues(foodResults); foodSearchForm = !foodSearchForm">Search</button>
-                                  <button class="cta search" ng-click="foodSearchForm = !foodSearchForm">Close</button>
-                              </div>
-
-                    </div><!-- End Buttons Col -->
-              </div>
-            </div><!-- END FOOD SUB CATEGORY BUTTONS -->
-          </section><!-- END FOOD SECTION -->
-        
-      
-      
-      
-          <!-------------- ACTIVITIES SECTION ----------------->
-          <section class="block" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0); transform-origin: center center 0px;">
-              <h3 class="block--title">
-                  Activities
-              </h3>
-              <span class="block--catch">
-                  Search for activities across L.A.
-              </span>
-              <div class="block--text">
-              </div>
-              <!-------------- ACTIVITY BUTTON START ----------------->
-              <!-- Title, Search Buttons -->
-              <div>
-                <!-- BUTTONS -->
-                <div class="row text-center" id="buttons" style="margin-top: 3%">
-                  <div class="col-md-12">
-                    <button ng-model="activitiesSearchForm" ng-init="activitiesSearchForm=false" ng-click="findCatOne('Activities'); activitiesSearchForm = !activitiesSearchForm" class="cta cta-colored cta-blue" ng-show="results">Find Activities</button>
-                  </div>
-                </div>
-                <!-- CONTENT LINKS AND INFO -->
-                <div class="row text-center" id="content" style="margin-top: 2%;" ng-if="randomEvent.length > 0 && selectedCategory === 'Activities'">
-                  <div class="col-12" id="results">
-                    <p>{{randomEvent[0].name}}</p>
-                    <p>{{randomEvent[0].details}}</p>
-                    <a href="{{randomEvent[0].link}}" target="_blank">Link</a>
-                  </div>
-                  <div class="col-md-12 text-center" id="options">
-                    <button ng-click="clearSearch()" class="btn btn-primary">Clear Search</button>
-                  </div>
-                </div>
-              </div><!-- End Title, Search Buttons -->
-
-              <!-- Start Hidden Food Form -->
-              <div id="activitiesSearch" ng-show="activitiesSearchForm">
-
-                <button type="button" class="close" ng-click="activitiesSearchForm = !activitiesSearchForm">×</button>
-                
-                <!-- Cat 2 Buttons -->
-                <div class="row">
-
-                  <!-- Buttons -->
-                  <div class="col-md-12 text-center" id="catTwoButtons">
-
-                    <!-- Activity Buttons Start -->
-                    <div>
-                      <form novalidate>
-                          <div class="btn-group">
-                            <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Athletic" uib-btn-checkbox>Athletic</label>
-                            <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Nature" uib-btn-checkbox>Nature</label>
-                            <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Relaxing" uib-btn-checkbox>Relaxing</label>
-                            <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Romantic" uib-btn-checkbox>Romantic</label>
-                            <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Games" uib-btn-checkbox>Games</label>
-                            <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Cultural" uib-btn-checkbox>Cultural</label>
-                            <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Artsy" uib-btn-checkbox>Artsy</label>
-                            <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Beauty" uib-btn-checkbox>Beauty</label>
-                            <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Inexpensive" uib-btn-checkbox>Inexpensive</label>
-                            <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Fancy" uib-btn-checkbox>Fancy</label>
-                            <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Educational" uib-btn-checkbox>Educational</label>
-                            <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Shopping" uib-btn-checkbox>Shopping</label>
-                            <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Nightlife" uib-btn-checkbox>Nightlife</label>
-                          </div>
-                        </form>
-                        <!-- <button ng-repeat="button in activitiesButtons" ng-click="ActivitiesInfo = !ActivitiesInfo">{{button}}</button> -->
-                        <div>
-                          <button class="cta search" ng-click="searchValues(activitiesResults); activitiesSearchForm = !activitiesSearchForm">Search</button>
-                          <button class="cta search" ng-click="activitiesSearchForm = !activitiesSearchForm">Close</button>
-                        </div>
-                    </div><!-- Activity Buttons End -->
-                  </div><!-- End Buttons Col -->
-                </div><!-- End Cat 2 Buttons -->
-
-              </div><!-- End Hidden Search Form -->
-          </section><!-- END ACTIVITY SECTION -->
-      
-      
-      
-      
-      </div><!-- page and block wrapper end --> 
-    
-</section><!-- END ACTIVITIES AND FOOD SECTION -->
-
-
-  <!-- FEELING LUCKY / RANDOM -->
-  <div class="pageWrapper" ng-controller="RandomCtrl">
-      <!-- TITLE -->
-      <div class="horizontalContainer">
-          <div class="catchPhrase catchPhrase-light-margin catchPhrase-large">
-              <p class="black">Feeling Lucky?</p>
-          </div>
-          
-          <!-- BUTTON -->
-          <div class="catchCta">
-              <button ng-model="status" ng-init="status=false" ng-click="searchRandom(); status = !status;" href="#random" id="randomButton" class="cta cta-colored cta-blue cta-visible cta-width-strict cta--invite cta--signup" ng-show="results">Find a Random Event</button>
-          </div>
-        
-          <!-- CONTENT LINKS AND INFO -->
-          <div class="row text-center">
-            <!-- RANDOM INFO -->
-            <div class="col-12" id="randomContent" ng-show="status">
-                <h1 id="randomEventTitle">{{event.name}}</h1>
-                <p id="randomDetails">{{event.details}}</p>
-                <a href="{{event.link}}" id="randomLink" target="_blank">Link to your event</a>
-                <br>
-                <button ng-click="clearRandomSearch(); status = !status" class="cta search" id="clearButton">Clear Search</button>
             </div>
-          </div><!-- END CONTENT LINKS AND INFO -->
-      </div>
-  </div><!-- END THIRD SECTION - CTA -->
-</div><!-- END BODY CONTAINER  -->
+          <!--LA-->
+            <div class="catchZone">
+                <div class="hello">
+                    <span id="intro">
+                        <span style="opacity: 1; transform: translate3d(0px, 0px, 0px); color:#0f6fa9;">L</span>
+                        <span id="last" style="opacity: 1; transform: translate3d(0px, 0px, 0px); color:#1ba2f4;">A</span>
+                    </span>
+                </div>
+            </div>
+          <!--Find Something To Do Fast -->
+            <div class="catchPhrase">
+                <p>
+                    <span style="opacity: 1; transform-origin: center center 0px; transform: matrix(1, 0, 0, 1, 0, 0);">Find something to do</span>
+        <span style="opacity: 1; transform-origin: center center 0px; transform: matrix(1, 0, 0, 1, 0, 0);">fast.</span>
+                </p>
+          </div>
+            <div class="catchCta">
+            </div>
+        </div>
+    </div>
+
+    <!-- ACTIVITIES AND FOOD SECTION -->
+    <section class="blocks" ng-controller="SelectController">
+      <div class="pageWrapper blocksWrapper">
+
+
+
+            <!-------------- FOOD SECTION ----------------->
+            <section class="block" style="opacity: 1; transform-origin: center center 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+                <h3 class="block--title">
+                    Food
+                </h3>
+                <span class="block--catch">
+                    Search for food spots across L.A.
+                </span>
+                <div class="block--text">
+                </div>
+
+                <!-- FOOD Title, Search Buttons -->
+                <div>
+                  <!-- BUTTONS -->
+                  <div class="row text-center" id="buttons" style="margin-top: 3%">
+                    <div class="col-md-12">
+                      
+                      <!-- Loading Button -->
+                      <button class="cta cta-colored cta-blue" ng-show="!results">
+                        <i class="fa fa-spinner fa-spin"></i>Loading
+                      </button>
+                      
+                      <!-- Food Button -->
+                      <button 
+                      class="cta cta-colored cta-blue" 
+                      ng-model="foodSearchForm" 
+                      ng-init="foodSearchForm=false" 
+                      ng-click="findCatOne('Food'); foodSearchForm = !foodSearchForm" 
+                      class="btn btn-primary" 
+                      ng-show="results"
+                      ga-on="click,auxclick,contextmenu"
+                      ga-event-category="foodCategory"
+                      ga-event-action="click">Find Food Spots</button>
+                    </div>
+                  </div>
+                  <!-- FOOD CONTENT LINKS AND INFO -->
+                  <div class="row text-center" id="content" style="margin-top: 2%;" ng-if="randomEvent.length > 0 && selectedCategory === 'Food'">
+                    <div class="col-12" id="results">
+                      <p>{{randomEvent[0].name}}</p>
+                      <p>{{randomEvent[0].details}}</p>
+                      <a 
+                         href="{{randomEvent[0].link}}" 
+                         target="_blank"
+                         ga-on="click,auxclick,contextmenu"
+                         ga-on="click,auxclick,contextmenu"
+                         ga-event-category="foodResult"
+                         ga-event-action="click">Link</a>
+
+                    </div>
+                    <div class="col-md-12 text-center" id="options">
+                      <button ng-click="clearSearch()" class="btn btn-primary" ga-on="click,auxclick,contextmenu" ga-event-category="foodResultClear" ga-event-action="close">Clear Search</button>
+                    </div>
+                  </div>
+                </div><!-- End Title, Search Buttons -->
+
+              <!-- FOOD SUB CATEGORY BUTTONS -->
+              <div class="row text-center" ng-show="foodSearchForm">
+                  <div>
+                        <button type="button" class="close" ng-click="foodSearchForm = !foodSearchForm" ga-on="click,auxclick,contextmenu" ga-event-category="foodClose" ga-event-action="close">×</button>
+                        <div id="catTwoButtons">
+                              <!-- Food Buttons Start -->
+                                <form novalidate>
+                                  <div class="btn-group" id="foodButtons">
+                                      <button class="btn btn-primary food-categories" ng-model="foodModel.Casual" ga-on="click,auxclick,contextmenu" ga-event-category="foodSubCategory" ga-event-action="select" uib-btn-checkbox>Casual</button>
+                                      <button class="btn btn-primary food-categories" ng-model="foodModel.Breakfast" ga-on="click,auxclick,contextmenu" ga-event-category="foodSubCategory" ga-event-action="select" uib-btn-checkbox>Breakfast</button>
+                                      <button class="btn btn-primary food-categories" ng-model="foodModel.Brunch" ga-on="click,auxclick,contextmenu" ga-event-category="foodSubCategory" ga-event-action="select" uib-btn-checkbox>Brunch</button>
+
+
+                                      <button class="btn btn-primary food-categories" ng-model="foodModel.Lunch" ga-on="click,auxclick,contextmenu" ga-event-category="foodSubCategory" ga-event-action="select" uib-btn-checkbox>Lunch</button>
+                                      <button class="btn btn-primary food-categories" ng-model="foodModel.Dinner" ga-on="click,auxclick,contextmenu" ga-event-category="foodSubCategory" ga-event-action="select" uib-btn-checkbox>Dinner</button>
+                                      <button class="btn btn-primary food-categories" ng-model="foodModel.Dessert" ga-on="click,auxclick,contextmenu" ga-event-category="foodSubCategory" ga-event-action="select" uib-btn-checkbox>Dessert</button>
+
+
+                                      <button class="btn btn-primary food-categories" ng-model="foodModel.Romantic" ga-on="click,auxclick,contextmenu" ga-event-category="foodSubCategory" ga-event-action="select" uib-btn-checkbox>Romantic</button>
+                                      <button class="btn btn-primary food-categories" ng-model="foodModel.FoodTruck" ga-on="click,auxclick,contextmenu" ga-event-category="foodSubCategory" ga-event-action="select" uib-btn-checkbox>Food Truck</button>
+                                      <button class="btn btn-primary food-categories" ng-model="foodModel.FastFood" ga-on="click,auxclick,contextmenu" ga-event-category="foodSubCategory" ga-event-action="select" uib-btn-checkbox>Fast Food</button>  
+
+
+                                      <button class="btn btn-primary food-categories" ng-model="foodModel.Inexpensive" uib-btn-checkbox>Inexpensive</button>
+                                      <button class="btn btn-primary food-categories" ng-model="foodModel.Fancy" uib-btn-checkbox>Fancy</button>  
+                                      <button class="btn btn-primary food-categories" ng-model="foodModel.Nightlife" uib-btn-checkbox>Nightlife</button>  
+
+                                      <button class="btn btn-primary food-categories" ng-model="foodModel.Vegan" uib-btn-checkbox>Vegan</button>
+                                      <button class="btn btn-primary food-categories" ng-model="foodModel.Boozy" uib-btn-checkbox>Boozy</button>
+                                  </div>
+                                </form>
+                                <div>
+                                    <button class="cta search" ng-click="searchValues(foodResults); foodSearchForm = !foodSearchForm" ga-on="click,auxclick,contextmenu" ga-event-category="foodSearch" ga-event-action="search">Search</button>
+                                    <button class="cta search" ng-click="foodSearchForm = !foodSearchForm" ga-on="click,auxclick,contextmenu" ga-event-category="foodClose" ga-event-action="close">Close</button>
+                                </div>
+
+                      </div><!-- End Buttons Col -->
+                </div>
+              </div><!-- END FOOD SUB CATEGORY BUTTONS -->
+            </section><!-- END FOOD SECTION -->
+
+
+
+
+            <!-------------- ACTIVITIES SECTION ----------------->
+            <section class="block" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0); transform-origin: center center 0px;">
+                <h3 class="block--title">
+                    Activities
+                </h3>
+                <span class="block--catch">
+                    Search for activities across L.A.
+                </span>
+                <div class="block--text">
+                </div>
+                <!-------------- ACTIVITY BUTTON START ----------------->
+                <!-- Title, Search Buttons -->
+                <div>
+                  <!-- BUTTONS -->
+                  <div class="row text-center" id="buttons" style="margin-top: 3%">
+                    <div class="col-md-12">
+                      <!-- Loading Button -->
+                      <button class="cta cta-colored cta-blue" ng-show="!results">
+                        <i class="fa fa-spinner fa-spin"></i>Loading
+                      </button>
+                      <!-- Activities Button -->
+                      <button ng-model="activitiesSearchForm" ng-init="activitiesSearchForm=false" ng-click="findCatOne('Activities'); activitiesSearchForm = !activitiesSearchForm" class="cta cta-colored cta-blue" ng-show="results" ga-on="click,auxclick,contextmenu" ga-event-category="activitiesCategory" ga-event-action="click">Find Activities</button>
+                    </div>
+                  </div>
+                  <!-- CONTENT LINKS AND INFO -->
+                  <div class="row text-center" id="content" style="margin-top: 2%;" ng-if="randomEvent.length > 0 && selectedCategory === 'Activities'">
+                    <div class="col-12" id="results">
+                      <p>{{randomEvent[0].name}}</p>
+                      <p>{{randomEvent[0].details}}</p>
+                      <a href="{{randomEvent[0].link}}" target="_blank" ga-on="click,auxclick,contextmenu" ga-event-category="activitiesResult" ga-event-action="click">Link</a>
+                    </div>
+                    <div class="col-md-12 text-center" id="options">
+                      <button ng-click="clearSearch()" class="btn btn-primary" ga-on="click,auxclick,contextmenu" ga-event-category="activitiesResultClear" ga-event-action="close">Clear Search</button>
+                    </div>
+                  </div>
+                </div><!-- End Title, Search Buttons -->
+
+                <!-- Start Hidden Food Form -->
+                <div id="activitiesSearch" ng-show="activitiesSearchForm">
+
+                  <button type="button" class="close" ng-click="activitiesSearchForm = !activitiesSearchForm" ga-on="click,auxclick,contextmenu" ga-event-category="activitiesClose" ga-event-action="close">×</button>
+
+                  <!-- Cat 2 Buttons -->
+                  <div class="row">
+
+                    <!-- Buttons -->
+                    <div class="col-md-12 text-center" id="catTwoButtons">
+
+                      <!-- Activity Buttons Start -->
+                      <div>
+                        <form novalidate>
+                            <div class="btn-group">
+                              <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Athletic" ga-on="click,auxclick,contextmenu" ga-event-category="activitiesSubCategory" ga-event-action="select" uib-btn-checkbox>Athletic</label>
+                              <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Nature" ga-on="click,auxclick,contextmenu" ga-event-category="activitiesSubCategory" ga-event-action="select"  uib-btn-checkbox>Nature</label>
+                              <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Relaxing" ga-on="click,auxclick,contextmenu" ga-event-category="activitiesSubCategory" ga-event-action="select"  uib-btn-checkbox>Relaxing</label>
+                              <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Romantic" ga-on="click,auxclick,contextmenu" ga-event-category="activitiesSubCategory" ga-event-action="select"  uib-btn-checkbox>Romantic</label>
+                              <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Games" ga-on="click,auxclick,contextmenu" ga-event-category="activitiesSubCategory" ga-event-action="select"  uib-btn-checkbox>Games</label>
+                              <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Cultural" ga-on="click,auxclick,contextmenu" ga-event-category="activitiesSubCategory" ga-event-action="select"  uib-btn-checkbox>Cultural</label>
+                              <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Artsy" ga-on="click,auxclick,contextmenu" ga-event-category="activitiesSubCategory" ga-event-action="select"  uib-btn-checkbox>Artsy</label>
+                              <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Beauty" ga-on="click,auxclick,contextmenu" ga-event-category="activitiesSubCategory" ga-event-action="select"  uib-btn-checkbox>Beauty</label>
+                              <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Inexpensive" ga-on="click,auxclick,contextmenu" ga-event-category="activitiesSubCategory" ga-event-action="select"  uib-btn-checkbox>Inexpensive</label>
+                              <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Fancy" ga-on="click,auxclick,contextmenu" ga-event-category="activitiesSubCategory" ga-event-action="select"  uib-btn-checkbox>Fancy</label>
+                              <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Educational" ga-on="click,auxclick,contextmenu" ga-event-category="activitiesSubCategory" ga-event-action="select"  uib-btn-checkbox>Educational</label>
+                              <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Shopping" ga-on="click,auxclick,contextmenu" ga-event-category="activitiesSubCategory" ga-event-action="select"  uib-btn-checkbox>Shopping</label>
+                              <label class="btn btn-primary activity-categories" ng-model="activitiesModel.Nightlife" ga-on="click,auxclick,contextmenu" ga-event-category="activitiesSubCategory" ga-event-action="select"  uib-btn-checkbox>Nightlife</label>
+                            </div>
+                          </form>
+                          <!-- <button ng-repeat="button in activitiesButtons" ng-click="ActivitiesInfo = !ActivitiesInfo">{{button}}</button> -->
+                          <div>
+                            <button class="cta search" ng-click="searchValues(activitiesResults); activitiesSearchForm = !activitiesSearchForm" ga-on="click,auxclick,contextmenu" ga-event-category="activitiesSearch" ga-event-action="search">Search</button>
+                            <button class="cta search" ng-click="activitiesSearchForm = !activitiesSearchForm" ga-on="click,auxclick,contextmenu" ga-event-category="activitiesClear" ga-event-action="close">Close</button>
+                          </div>
+                      </div><!-- Activity Buttons End -->
+                    </div><!-- End Buttons Col -->
+                  </div><!-- End Cat 2 Buttons -->
+
+                </div><!-- End Hidden Search Form -->
+            </section><!-- END ACTIVITY SECTION -->
+
+
+
+
+        </div><!-- page and block wrapper end --> 
+
+  </section><!-- END ACTIVITIES AND FOOD SECTION -->
+
+
+    <!-- FEELING LUCKY / RANDOM -->
+    <div class="pageWrapper" ng-controller="RandomCtrl">
+        <!-- TITLE -->
+        <div class="horizontalContainer">
+            <div class="catchPhrase catchPhrase-light-margin catchPhrase-large">
+                <p class="black">Feeling Lucky?</p>
+            </div>
+
+            <!-- BUTTON -->
+            <div class="catchCta">
+                <!-- Loading Button -->
+                <button class="cta cta-colored cta-blue cta-visible cta-width-strict cta--invite cta--signup" ng-show="!results">
+                  <i class="fa fa-spinner fa-spin"></i>Loading
+                </button>
+                <!-- Random Button -->
+                <button ng-model="status" ng-init="status=false" ng-click="searchRandom(); status = !status;" href="#random" id="randomButton" class="cta cta-colored cta-blue cta-visible cta-width-strict cta--invite cta--signup" ng-show="results" ga-on="click,auxclick,contextmenu" ga-event-category="randomCategory" ga-event-action="click">Find a Random Event</button>
+            </div>
+
+            <!-- CONTENT LINKS AND INFO -->
+            <div class="row text-center">
+              <!-- RANDOM INFO -->
+              <div class="col-12" id="randomContent" ng-show="status">
+                  <h1 id="randomEventTitle">{{event.name}}</h1>
+                  <p id="randomDetails">{{event.details}}</p>
+                  <a href="{{event.link}}" id="randomLink" target="_blank" ga-on="click,auxclick,contextmenu" ga-event-category="randomResult" ga-event-action="click">Link to your event</a>
+                  <br>
+                  <button ng-click="clearRandomSearch(); status = !status" class="cta search" id="clearButton" ga-on="click,auxclick,contextmenu" ga-event-category="randomClear" ga-event-action="close">Clear Search</button>
+              </div>
+            </div><!-- END CONTENT LINKS AND INFO -->
+        </div>
+    </div><!-- END THIRD SECTION - CTA -->
+
+    
+  </div><!-- END BODY CONTAINER  -->
+
+
+
+  <!-- Google Autotrack JS -->
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-108524643-1', 'auto');
+
+  // Plugins
+  ga('require', 'eventTracker', {
+    events: ['click', 'auxclick', 'contextmenu']
+  });
+  ga('require', 'urlChangeTracker');
+    
+  ga('set', 'page', '/home.html');
+  ga('send', 'pageview');
+  </script>
+  <!-- Events Tracked -->
+  <!-- 
+  INITIAL VIEW
+  Main Category: foodCategory, activitiesCategory, randomCategory
+
+  RESULTS
+  Result Links: foodResult, activitiesResult, randomResult
+  Clear: foodResultClear, activitiesResultClear, randomClear
+
+  FORMS
+  Sub-Category: foodSubCategory, activitiesSubCategory
+  Close: foodClose, activitiesClose
+  Search: foodSearch, activitiesSearch
+  -->
